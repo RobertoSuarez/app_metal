@@ -9,9 +9,12 @@ import { SignupComponent } from "./signup/signup.component";
 import { LandingComponent } from "./landing/landing.component";
 import { LoginComponent } from "./login/login.component";
 import { UserComponent } from "./layout/user/user.component";
+import { AdminComponent } from "./layout/admin/admin.component";
 
 const routes: Routes = [
+  
   { path: "", redirectTo: "home", pathMatch: "full" },
+
   {
     path: "",
     component: UserComponent,
@@ -22,7 +25,14 @@ const routes: Routes = [
     ],
   },
 
-  { path: "register", component: SignupComponent },
+  {
+    path: "",
+    component: AdminComponent,
+    children: [
+      { path: "registrar", component: SignupComponent },
+    ]
+  },
+  
   { path: "login", component: LoginComponent },
 ];
 
