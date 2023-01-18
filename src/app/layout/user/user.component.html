@@ -1,4 +1,44 @@
-<p>Layout para el usuario por ejemplo la paciente</p>
-<a routerLink="/perfil" class="mr-3">perfil</a>
-<a routerLink="/home">Home</a>
+<nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-default">
+  <div class="container">
+    <a class="navbar-brand" href="javascript:void(0)">Metal Obstetric</a>
+
+    <div class="collapse navbar-collapse" id="navbar-default">
+      <ul class="navbar-nav ml-lg-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-icon"
+            routerLink="/home"
+            [routerLinkActive]="['is-active']"
+          >
+            <span class="nav-link-inner--text">Citas</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="javascript:void(0)">
+            <span class="nav-link-inner--text">Reservas</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="javascript:void(0)">
+            <span class="nav-link-inner--text">Historial médico</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="javascript:void(0)">
+            <span class="nav-link-inner--text">Contenido de interés</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-icon"
+            routerLink="/perfil"
+            [routerLinkActive]="['is-active']"
+          >
+            <span class="nav-link-inner--text">Mi Perfil</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <router-outlet></router-outlet>
