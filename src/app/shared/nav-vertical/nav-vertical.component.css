@@ -1,0 +1,7 @@
+.nav-bar-vertial {
+    width: 15rem;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

@@ -26,7 +26,7 @@ const routes: Routes = [
   },
 
   {
-    path: "",
+    path: "admin",
     component: AdminComponent,
     children: [
       { path: "registrar", component: SignupComponent },
