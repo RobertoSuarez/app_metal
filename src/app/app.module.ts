@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
+import { ProximaCitaComponent } from './proxima-cita/proxima-cita.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { LoginComponent } from './login/login.component';
     LandingComponent,
     ProfileComponent,
     LoginComponent,
-
+    ProximaCitaComponent,
   ],
   imports: [
     BrowserModule,

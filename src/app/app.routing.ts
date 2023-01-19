@@ -10,6 +10,7 @@ import { LandingComponent } from "./landing/landing.component";
 import { LoginComponent } from "./login/login.component";
 import { UserComponent } from "./layout/user/user.component";
 import { AdminComponent } from "./layout/admin/admin.component";
+import { ProximaCitaComponent } from "./proxima-cita/proxima-cita.component";
 
 const routes: Routes = [
   
@@ -21,6 +22,7 @@ const routes: Routes = [
     children: [
       { path: "home", component: HomeComponent },
       { path: "perfil", component: ProfileComponent },
+      { path: 'proximas-citas', component: ProximaCitaComponent },
       { path: "landing", component: LandingComponent },
     ],
   },
