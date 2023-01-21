@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { ProximaCitaComponent } from './proxima-cita/proxima-cita.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProximaCitaComponent } from './proxima-cita/proxima-cita.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

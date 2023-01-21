@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Login } from './login.types';
+import { UserService } from '../core/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +15,16 @@ export class LoginComponent implements OnInit {
     correo: new FormControl('kalmeav@uteq.edu.ec', [Validators.required, Validators.email]),
     contraseña: new FormControl('clave', [Validators.required, Validators.minLength(6) ]),
   })
-  constructor() { }
+
+  constructor(
+    private userService: UserService
+  ) 
+  {}
 
   ngOnInit() {
+    
   }
+
   onLoginUsuario(){
     console.log(this.userLoginForm.value);
   }
