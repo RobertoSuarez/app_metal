@@ -14,7 +14,6 @@
       <div class="row justify-content-center">
         <div class="col-lg-5">
           <div class="card bg-secondary shadow border-0">
-
             <!-- <div class="card-header bg-white pb-5">
               <div class="text-muted text-center mb-3">
                 <small>Sign up with</small>
@@ -36,152 +35,190 @@
             </div> -->
 
             <div class="card-body px-lg-5 py-lg-5">
-
               <h3 class="text-center mb-3">Registro de usuarios</h3>
 
-              <form role="form" [formGroup]="userForm" (ngSubmit)="onRegistrarUsuario()">
-
-                <div class="form-group" [ngClass]="{'focused':focus===true}">
+              <form
+                role="form"
+                [formGroup]="userForm"
+                (ngSubmit)="onRegistrarUsuario()"
+              >
+                <div class="form-group" [ngClass]="{ focused: focus === true }">
                   <div class="input-group input-group-alternative mb-3">
-
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-single-02"></i
+                      ></span>
                     </div>
 
-                    <input 
-                      class="form-control" 
-                      formControlName="nombres" 
-                      placeholder="Nombres" 
-                      type="text" 
-                      (focus)="focus=true" 
-                      (blur)="focus=false"
-                      >
-
+                    <input
+                      class="form-control"
+                      formControlName="nombres"
+                      placeholder="Nombres"
+                      type="text"
+                      (focus)="focus = true"
+                      (blur)="focus = false"
+                    />
                   </div>
                 </div>
 
-                <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                <div
+                  class="form-group"
+                  [ngClass]="{ focused: focus1 === true }"
+                >
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-single-02"></i
+                      ></span>
                     </div>
-                    <input 
-                      class="form-control" 
-                      placeholder="Apellidos" 
+                    <input
+                      class="form-control"
+                      placeholder="Apellidos"
                       formControlName="apellidos"
-                      type="email" 
-                      (focus)="focus1=true" 
-                      (blur)="focus1=false">
+                      type="email"
+                      (focus)="focus1 = true"
+                      (blur)="focus1 = false"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="form-group"
+                  [ngClass]="{ focused: focus1 === true }"
+                >
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-single-02"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Cedula"
+                      formControlName="cedula"
+                      type="text"
+                      (focus)="focus1 = true"
+                      (blur)="focus1 = false"
+                    />
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-calendar-grid-58"></i
+                      ></span>
                     </div>
-                    <input 
-                      class="form-control" 
-                      placeholder="dd-mm-yyyy" 
+                    <input
+                      class="form-control"
+                      placeholder="dd/mm/yyyy"
                       formControlName="nacimiento"
-                      type="date" 
-                      (focus)="focus1=true" 
-                      (blur)="focus1=false">
+                      type="date"
+                      (focus)="focus1 = true"
+                      (blur)="focus1 = false"
+                    />
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-badge"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-badge"></i
+                      ></span>
                     </div>
-                    
-                    <select 
+
+                    <select
                       class="custom-select form-control"
                       formControlName="genero"
                       id="generos"
-                      >
-                      <option *ngFor="let g of generos" [value]="g">{{ g }}</option>
+                    >
+                      <option *ngFor="let g of generos" [value]="g">
+                        {{ g }}
+                      </option>
                     </select>
                   </div>
                 </div>
 
-
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-email-83"></i
+                      ></span>
                     </div>
-                    <input 
-                      class="form-control" 
-                      placeholder="Correo electrónico" 
+                    <input
+                      class="form-control"
+                      placeholder="Correo electrónico"
                       formControlName="correo"
-                      type="email" 
-                      (focus)="focus1=true" 
-                      (blur)="focus1=false">
+                      type="email"
+                      (focus)="focus1 = true"
+                      (blur)="focus1 = false"
+                    />
                   </div>
                 </div>
 
-                <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                <div
+                  class="form-group"
+                  [ngClass]="{ focused: focus2 === true }"
+                >
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-lock-circle-open"></i
+                      ></span>
                     </div>
-                    <input 
-                      class="form-control" 
-                      placeholder="Contraseña" 
-                      formControlName="contraseña"
-                      type="password" 
-                      (focus)="focus2=true" 
-                      (blur)="focus2=false">
+                    <input
+                      class="form-control"
+                      placeholder="Contraseña"
+                      formControlName="password"
+                      type="password"
+                      (focus)="focus2 = true"
+                      (blur)="focus2 = false"
+                    />
                   </div>
                 </div>
 
-                <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                <div
+                  class="form-group"
+                  [ngClass]="{ focused: focus2 === true }"
+                >
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-lock-circle-open"></i
+                      ></span>
                     </div>
-                    <input 
-                      class="form-control" 
-                      placeholder="Confirmar contraseña" 
+                    <input
+                      class="form-control"
+                      placeholder="Confirmar contraseña"
                       formControlName="confirContraseña"
-                      type="password" 
-                      (focus)="focus2=true" 
-                      (blur)="focus2=false">
+                      type="password"
+                      (focus)="focus2 = true"
+                      (blur)="focus2 = false"
+                    />
                   </div>
                 </div>
 
-                <div class="row my-4">
-                  <div class="col-12">
-                    <div class="custom-control custom-control-alternative custom-checkbox">
-                      <input 
-                        class="custom-control-input" 
-                        formControlName="politica"
-                        id="customCheckRegister" 
-                        type="checkbox">
-                      <label class="custom-control-label" for="customCheckRegister">
-                        <span>Estoy de acuerdo con la
-                          <a href="javascript:void(0)">Política de Privacidad</a>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
+                
 
                 <div class="text-center">
-                  <button 
+                  <button
                     [disabled]="!userForm.valid"
-                    type="submit" 
-                    class="btn btn-primary mt-4">Crear cuenta</button>
+                    type="submit"
+                    class="btn btn-primary mt-4"
+                  >
+                    Crear cuenta
+                  </button>
                 </div>
-
               </form>
-
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+
 </main>

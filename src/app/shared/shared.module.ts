@@ -5,12 +5,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NavVerticalComponent } from './nav-vertical/nav-vertical.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Modal1Component } from './modal1/modal1.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
     NavbarComponent,
     NavVerticalComponent,
+    Modal1Component,
   ],
   imports: [
     CommonModule,
