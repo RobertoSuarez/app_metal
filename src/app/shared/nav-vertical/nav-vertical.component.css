@@ -4,4 +4,26 @@
     position: fixed;
     top: 0;
     left: 0;
+    background-color: whitesmoke;
+}
+
+.menu-opciones {
+    flex: 1;
+}
+
+.menu-item {
+    
+    color: black;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: white;
+    color: #5e72e4;
+}
+
+.menu-item-active { 
+    background-color: white !important;
+    color: #172b4d !important;
+    border-left: 5px solid #172b4d;
 }

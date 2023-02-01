@@ -12,6 +12,10 @@ import { UserComponent } from "./layout/user/user.component";
 import { AdminComponent } from "./layout/admin/admin.component";
 import { ProximaCitaComponent } from "./proxima-cita/proxima-cita.component";
 import { ListadoPacientesComponent } from "./listado-pacientes/listado-pacientes.component";
+import { HistorialMedicoComponent } from "./historial-medico/historial-medico.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { ConfiguracionesComponent } from "./configuraciones/configuraciones.component";
+import { AyudaComponent } from "./ayuda/ayuda.component";
 
 const routes: Routes = [
   
@@ -32,8 +36,12 @@ const routes: Routes = [
     path: "admin",
     component: AdminComponent,
     children: [
-      { path: "registrar", component: SignupComponent },
-      { path: "listado", component: ListadoPacientesComponent },
+      { path: "registrar-usuario", component: SignupComponent },
+      { path: "pacientes-por-atender", component: ListadoPacientesComponent },
+      { path: "historial-medico", component: HistorialMedicoComponent },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "configuracion", component: ConfiguracionesComponent },
+      { path: "ayuda", component: AyudaComponent },
     ]
   },
   
