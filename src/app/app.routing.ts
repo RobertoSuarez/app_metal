@@ -11,6 +11,7 @@ import { LoginComponent } from "./login/login.component";
 import { UserComponent } from "./layout/user/user.component";
 import { AdminComponent } from "./layout/admin/admin.component";
 import { ProximaCitaComponent } from "./proxima-cita/proxima-cita.component";
+import { ListadoPacientesComponent } from "./listado-pacientes/listado-pacientes.component";
 
 const routes: Routes = [
   
@@ -32,6 +33,7 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: "registrar", component: SignupComponent },
+      { path: "listado", component: ListadoPacientesComponent },
     ]
   },
   

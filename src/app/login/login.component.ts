@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   userLoginForm: FormGroup = new FormGroup({
     correo: new FormControl('kalmeav@uteq.edu.ec', [Validators.required, Validators.email]),
-    contraseña: new FormControl('clave', [Validators.required, Validators.minLength(6) ]),
+    contraseña: new FormControl('clave', [Validators.required, Validators.minLength(2) ]),
   })
 
   constructor(
@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
   onLoginUsuario(){
     console.log(this.userLoginForm.value);
+    this.userService.login(this.userLoginForm.get('correo').value, this.userLoginForm.get('contraseña').value)
   }
 
 }

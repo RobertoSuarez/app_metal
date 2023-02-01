@@ -14,6 +14,7 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { ProximaCitaComponent } from './proxima-cita/proxima-cita.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListadoPacientesComponent } from './listado-pacientes/listado-pacientes.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileComponent,
     LoginComponent,
     ProximaCitaComponent,
+    ListadoPacientesComponent,
   ],
   imports: [
     BrowserModule,
