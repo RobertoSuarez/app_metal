@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../core/user/user.service';
+import { finalize } from "rxjs";
+import { HttpErrorResponse } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -10,14 +13,16 @@ import { UserService } from '../core/user/user.service';
 export class LoginComponent implements OnInit {
   focus;
   focus1;
+  err: boolean= false;
 
   userLoginForm: FormGroup = new FormGroup({
-    correo: new FormControl('kalmeav@uteq.edu.ec', [Validators.required, Validators.email]),
-    contraseña: new FormControl('clave', [Validators.required, Validators.minLength(2) ]),
+    correo: new FormControl('almea@gmail.com', [Validators.required, Validators.email]),
+    contraseña: new FormControl('800', [Validators.required, Validators.minLength(2) ]),
   })
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) 
   {}
 
@@ -27,7 +32,29 @@ export class LoginComponent implements OnInit {
 
   onLoginUsuario(){
     console.log(this.userLoginForm.value);
-    this.userService.login(this.userLoginForm.get('correo').value, this.userLoginForm.get('contraseña').value)
+    
+    // 
+    const correo: string = this.userLoginForm.get('correo').value;
+    const password: string = this.userLoginForm.get('contraseña').value;
+
+    this.userService.login(correo, password)
+      .subscribe({
+        complete: () => { 
+          console.log('completado'); 
+        },
+        next: (response) => {
+          //console.log(response);
+          //alert('El usuario inicio con exito' + response.user.nombres);
+          this.router.navigate(['/perfil'])
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log(error);
+          //alert(error.message);
+          this.err = true;
+        }
+      });
+
+    
   }
 
 }

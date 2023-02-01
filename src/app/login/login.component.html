@@ -24,6 +24,9 @@
               <div class="pb-5" style="text-align: center;"> 
                 <img src="./assets/img/brand/metalObstetric.jpg" height="200">
               </div>
+              <div *ngIf="err" class="alert alert-danger" role="alert">
+                <strong>Error:</strong> Usuario o contraseña incorrecto.
+              </div>
               <form role="form" [formGroup]="userLoginForm" (ngSubmit)="onLoginUsuario()">
                 <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
                   <div class="input-group input-group-alternative">

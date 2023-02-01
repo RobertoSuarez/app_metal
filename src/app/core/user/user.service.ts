@@ -4,7 +4,7 @@ import { throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { toUnicode } from 'punycode';
 import { environment } from 'src/environments/environment';
-import { User } from './user.types';
+import { User, LoginResponse } from './user.types';
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +21,10 @@ export class UserService {
   }
 
 
-  login( correo:string, password:string){
-    this.http.post(`${environment.apiUrl}/users/login`, {
+  login( correo: string, password: string ) {
+    return this.http.post<LoginResponse>(`${environment.apiUrl}/users/login`, {
       correo: correo,
       password: password
-    }).subscribe(data => {
-      console.log(data);
     })
   }
 

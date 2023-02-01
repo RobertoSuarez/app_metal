@@ -8,3 +8,9 @@ export interface User {
     genero:     string;
     nacimiento: Date | string;
 }
+
+
+export interface LoginResponse {
+    user: User;
+    token: string;
+}
