@@ -5,7 +5,6 @@ import { UserService } from "../core/user/user.service";
 import { User } from "../core/user/user.types";
 import { Registro } from "./signup.types";
 import { Modal1Component } from "../shared/modal1/modal1.component";
-import { Router } from "@angular/router";
 import { finalize } from "rxjs";
 
 @Component({
@@ -53,8 +52,7 @@ export class SignupComponent implements OnInit {
 
 
   constructor(
-    private _userService: UserService,
-    private router: Router
+    private _userService: UserService
   ) {}
 
   ngOnInit() {
