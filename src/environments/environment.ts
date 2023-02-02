@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://68.183.108.235:3000/api/v1',
+  apiUrl: 'https://app-api-metal.herokuapp.com/api/v1',
 };
 
 /*

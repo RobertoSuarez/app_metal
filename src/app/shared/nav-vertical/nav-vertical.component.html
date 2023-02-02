@@ -1,11 +1,32 @@
-<div class="nav-bar-vertial p-3">
-  <h3>Metal Obstetric</h3>
+<div class="nav-bar-vertial d-flex flex-column">
+  <h3 class="px-3 mt-3">Metal Obstetric</h3>
 
-  <div class="d-flex flex-column">
-    <div class="d-flex flex-row align-items-center p-3" *ngFor="let item of ['Dashboard', 'Historial medico', 'Formulario de citas']">
-        <i class="ni ni-calendar-grid-58 mr-3"></i>
-        <div>{{ item }}</div>
+  <div class="d-flex flex-column justify-content-between menu-opciones">
+    
+    <!-- opciones principales -->
+    <div class="d-flex flex-column">
+      <a
+        class="d-flex flex-row align-items-center p-3 menu-item"
+        *ngFor="let ruta of opcionesPrincipales"
+        [routerLinkActive]="['menu-item-active']"
+        [routerLink]="ruta.path"
+      >
+        <i class="mr-3" [ngClass]="ruta.icon"></i>
+        <div>{{ ruta.display }}</div>
+      </a>
+    </div>
+
+    <!-- opciones inferiores -->
+    <div>
+      <a
+        class="d-flex flex-row align-items-center p-3 menu-item"
+        *ngFor="let ruta of opcionesInferiores"
+        [routerLinkActive]="['menu-item-active']"
+        [routerLink]="ruta.path"
+      >
+        <i class="mr-3" [ngClass]="ruta.icon"></i>
+        <div>{{ ruta.display }}</div>
+      </a>
     </div>
   </div>
-  
 </div>

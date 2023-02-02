@@ -15,6 +15,10 @@ import { LoginComponent } from './login/login.component';
 import { ProximaCitaComponent } from './proxima-cita/proxima-cita.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListadoPacientesComponent } from './listado-pacientes/listado-pacientes.component';
+import { HistorialMedicoComponent } from './historial-medico/historial-medico.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ConfiguracionesComponent } from './configuraciones/configuraciones.component';
+import { AyudaComponent } from './ayuda/ayuda.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,10 @@ import { ListadoPacientesComponent } from './listado-pacientes/listado-pacientes
     LoginComponent,
     ProximaCitaComponent,
     ListadoPacientesComponent,
+    HistorialMedicoComponent,
+    DashboardComponent,
+    ConfiguracionesComponent,
+    AyudaComponent,
   ],
   imports: [
     BrowserModule,
