@@ -19,6 +19,7 @@ import { HistorialMedicoComponent } from './historial-medico/historial-medico.co
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ConfiguracionesComponent } from './configuraciones/configuraciones.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
+import { HistorialPacientesComponent } from './historial-pacientes/historial-pacientes.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AyudaComponent } from './ayuda/ayuda.component';
     DashboardComponent,
     ConfiguracionesComponent,
     AyudaComponent,
+    HistorialPacientesComponent,
   ],
   imports: [
     BrowserModule,

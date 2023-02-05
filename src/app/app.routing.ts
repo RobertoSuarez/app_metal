@@ -16,6 +16,7 @@ import { HistorialMedicoComponent } from "./historial-medico/historial-medico.co
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ConfiguracionesComponent } from "./configuraciones/configuraciones.component";
 import { AyudaComponent } from "./ayuda/ayuda.component";
+import { HistorialPacientesComponent } from "./historial-pacientes/historial-pacientes.component";
 
 const routes: Routes = [
   
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: "perfil", component: ProfileComponent },
       { path: 'proximas-citas', component: ProximaCitaComponent },
       { path: "landing", component: LandingComponent },
+      { path: "historial-paciente", component: HistorialPacientesComponent },
     ],
   },
 
