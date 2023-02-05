@@ -16,10 +16,13 @@ import { HistorialMedicoComponent } from "./historial-medico/historial-medico.co
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ConfiguracionesComponent } from "./configuraciones/configuraciones.component";
 import { AyudaComponent } from "./ayuda/ayuda.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
   
   { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: "login", component: LoginComponent },
+
 
   {
     path: "",
@@ -45,7 +48,7 @@ const routes: Routes = [
     ]
   },
   
-  { path: "login", component: LoginComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
