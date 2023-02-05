@@ -1,6 +1,11 @@
 <nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-default">
   <div class="container">
-    <a class="navbar-brand" href="javascript:void(0)">Metal Obstetric</a>
+    <a 
+      class="navbar-brand" 
+      routerLink="/inicio"
+      >
+      Metal Obstetric
+    </a>
 
     <div class="collapse navbar-collapse" id="navbar-default">
       <ul class="navbar-nav ml-lg-auto">
@@ -26,7 +31,10 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" href="javascript:void(0)">
+          <a 
+            routerLink="/contenido-de-interes"
+            class="nav-link nav-link-icon" 
+            [routerLinkActive]="['is-active']">
             <span class="nav-link-inner--text">Contenido de interés</span>
           </a>
         </li>

@@ -18,6 +18,9 @@ import { ConfiguracionesComponent } from "./configuraciones/configuraciones.comp
 import { AyudaComponent } from "./ayuda/ayuda.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { HistorialPacientesComponent } from "./historial-pacientes/historial-pacientes.component";
+import { InicioComponent } from "./inicio/inicio.component";
+import { ContendioDeInteresComponent } from "./contendio-de-interes/contendio-de-interes.component";
+import { NuevaCitaComponent } from "./nueva-cita/nueva-cita.component";
 
 const routes: Routes = [
   
@@ -30,8 +33,10 @@ const routes: Routes = [
     component: UserComponent,
     children: [
       { path: "home", component: HomeComponent },
+      { path: "inicio", component: InicioComponent },
       { path: "perfil", component: ProfileComponent },
       { path: 'proximas-citas', component: ProximaCitaComponent },
+      { path: "contenido-de-interes", component: ContendioDeInteresComponent },
       { path: "landing", component: LandingComponent },
       { path: "historial-paciente", component: HistorialPacientesComponent },
     ],
@@ -47,6 +52,7 @@ const routes: Routes = [
       { path: "dashboard", component: DashboardComponent },
       { path: "configuracion", component: ConfiguracionesComponent },
       { path: "ayuda", component: AyudaComponent },
+      { path: "nueva-cita", component: NuevaCitaComponent },
     ]
   },
   

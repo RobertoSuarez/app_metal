@@ -21,6 +21,9 @@ import { ConfiguracionesComponent } from './configuraciones/configuraciones.comp
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HistorialPacientesComponent } from './historial-pacientes/historial-pacientes.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { ContendioDeInteresComponent } from './contendio-de-interes/contendio-de-interes.component';
+import { NuevaCitaComponent } from './nueva-cita/nueva-cita.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { HistorialPacientesComponent } from './historial-pacientes/historial-pac
     AyudaComponent,
     PageNotFoundComponent,
     HistorialPacientesComponent,
+    InicioComponent,
+    ContendioDeInteresComponent,
+    NuevaCitaComponent,
   ],
   imports: [
     BrowserModule,

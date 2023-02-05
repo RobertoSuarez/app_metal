@@ -22,3 +22,7 @@ flex: none;
 order: 0;
 flex-grow: 0;
 }
+
+.btn-nueva-cita i {
+    font-size: 1rem;
+}
