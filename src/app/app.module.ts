@@ -20,6 +20,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ConfiguracionesComponent } from './configuraciones/configuraciones.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HistorialPacientesComponent } from './historial-pacientes/historial-pacientes.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ConfiguracionesComponent,
     AyudaComponent,
     PageNotFoundComponent,
+    HistorialPacientesComponent,
   ],
   imports: [
     BrowserModule,
