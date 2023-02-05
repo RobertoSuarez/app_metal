@@ -12,7 +12,6 @@
 }
 
 .menu-item {
-    
     color: black;
     cursor: pointer;
 }
@@ -20,6 +19,7 @@
 .menu-item:hover {
     background-color: white;
     color: #5e72e4;
+    transition: 0.4s;
 }
 
 .menu-item-active { 
