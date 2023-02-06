@@ -1,4 +1,10 @@
+.admin-contenedor-main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    
+}
+
 .contenido {
     margin-left: 15rem !important;
-    width: 100%;
 }

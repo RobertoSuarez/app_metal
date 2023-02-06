@@ -12,4 +12,7 @@ export class NuevaCitaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  registrarCita(): void { 
+    console.log('registrarCita');
+  }
 }
