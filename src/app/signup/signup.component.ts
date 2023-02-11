@@ -24,27 +24,27 @@ export class SignupComponent implements OnInit {
   roles: string[] = ['admin', 'doctor', 'paciente'];
 
   userForm: FormGroup = new FormGroup({
-    nombres: new FormControl("Roberto Carlos", [
+    nombres: new FormControl("", [
       Validators.required,
       Validators.minLength(6),
     ]),
-    apellidos: new FormControl("Suárez Litardo", [
+    apellidos: new FormControl("", [
       Validators.required,
       Validators.minLength(6),
     ]),
-    cedula: new FormControl("1206773572", [
+    cedula: new FormControl("", [
       Validators.required,
       Validators.minLength(10),
     ]),
-    celular: new FormControl("0998745525", [
+    celular: new FormControl("", [
       Validators.required,
       Validators.minLength(10),
     ]),
-    correo: new FormControl("electrosonix12@gmail.com", [
+    correo: new FormControl("", [
       Validators.required,
       Validators.email,
     ]),
-    password: new FormControl("facil2020", [
+    password: new FormControl("", [
       Validators.required,
       Validators.minLength(6),
     ]),
@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
     nacimiento: new FormControl("", [Validators.required]),
     rol: new FormControl("", [Validators.required]),
 
-    confirContraseña: new FormControl("facil2020", [Validators.required]),
+    confirContraseña: new FormControl("", [Validators.required]),
     politica: new FormControl(true, Validators.requiredTrue),
   });
 
