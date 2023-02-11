@@ -25,7 +25,7 @@
             <tr *ngFor="let cita of citasPresentar">
               <td scope="row">{{cita.paciente.nombres}} {{cita.paciente.apellidos}}</td>
               <td>{{cita.descripcion}}</td>
-              <td>{{cita.fecha}}</td>
+              <td>{{cita.fecha | date:"dd/MM/yyyy" }}</td>
             </tr>
           </tbody>
 

@@ -21,6 +21,7 @@ export class SignupComponent implements OnInit {
   error: string = '';
 
   generos: string[] = ["Masculino", "Femenino", "otros"];
+  roles: string[] = ['admin', 'doctor', 'paciente'];
 
   userForm: FormGroup = new FormGroup({
     nombres: new FormControl("Roberto Carlos", [
@@ -35,6 +36,10 @@ export class SignupComponent implements OnInit {
       Validators.required,
       Validators.minLength(10),
     ]),
+    celular: new FormControl("0998745525", [
+      Validators.required,
+      Validators.minLength(10),
+    ]),
     correo: new FormControl("electrosonix12@gmail.com", [
       Validators.required,
       Validators.email,
@@ -45,6 +50,7 @@ export class SignupComponent implements OnInit {
     ]),
     genero: new FormControl(null, [Validators.required]),
     nacimiento: new FormControl("", [Validators.required]),
+    rol: new FormControl("", [Validators.required]),
 
     confirContraseña: new FormControl("facil2020", [Validators.required]),
     politica: new FormControl(true, Validators.requiredTrue),

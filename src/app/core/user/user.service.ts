@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -33,6 +33,18 @@ export class UserService {
 
     usuario.nacimiento = new Date(usuario.nacimiento).toISOString();
     return this.http.post<User>(`${environment.apiUrl}/users/registrar`, usuario)
+  }
+
+  // obtener usuario con rol paciente y doctor
+  ObtenerUsuario(rol: string, termino: string, limite: number = 10) {
+    console.log("Obtener usuario Rol: ", rol);
+    let params = new HttpParams();
+    params = params.append('rol', rol);
+    params = params.append('termino', termino);
+    params = params.append('limite', limite);
+    console.log(params);
+
+    return this.http.get<User[]>(`${environment.apiUrl}/users`, { params })
   }
 
 }

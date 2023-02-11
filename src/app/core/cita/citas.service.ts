@@ -11,7 +11,12 @@ export class CitasService {
   constructor(
     private http: HttpClient
   ) { }
+
   mostarCitas(cedula:string){
     return this.http.get<Cita[]>(`${environment.apiUrl}/citas`)
+  }
+
+  registraCita(cita: Cita) {
+    return this.http.post<Cita>(`${environment.apiUrl}/citas`, cita)
   }
 }
