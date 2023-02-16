@@ -17,6 +17,7 @@ export class CitasService {
   }
 
   registraCita(cita: Cita) {
+    cita.fecha = new Date(cita.fecha).toISOString();
     return this.http.post<Cita>(`${environment.apiUrl}/citas`, cita)
   }
 }
