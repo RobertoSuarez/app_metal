@@ -9,136 +9,197 @@
   <form class="form-nueva-cita p-4" (ngSubmit)="registrarCita()">
     <!-- datos del paciente -->
     <h4>Datos del paciente</h4>
-    <div class="row">
-      <div class="col-12">
-        <div class="form-group">
-          <label for="PacienteSelecionado" >Seleccione un paciente</label>
-          <input 
-            type="text" 
-            class="form-control form-control mb-2"
-            placeholder="Palabra clave"
-            [(ngModel)]="terminoQuery" 
-            (ngModelChange)="filtroPaciente()" />
-            
-          <select
-            class="custom-select form-control"
-            [(ngModel)]="pacienteSelecionado"
-            id="PacienteSelecionado"
+    <div class="formulario-input">
+      <div class="form-group">
+        <label for="pacienteIdentificador">
+          Buscador de pacientes 
+          <span class="text-primary" *ngIf="estadoPaciente">Buscando...</span>
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          id="pacienteIdentificador"
+          placeholder="Palabra clave por ejemplo: cedula, nombres, correo"
+          name="identificador_paciente"
+          [(ngModel)]="queryPaciente"
+          (ngModelChange)="filtroPaciente()"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="PacienteSelecionado">Seleccione un paciente</label>
+        <select
+          class="custom-select form-control"
+          [(ngModel)]="cita.paciente"
+          name="paciente_selecionado"
+          id="PacienteSelecionado"
+        >
+          <option
+            *ngFor="let paciente of pacientesFiltrado"
+            [ngValue]="paciente"
           >
-            <option *ngFor="let paciente of pacientesFiltrado" [ngValue]="paciente">
-              {{ paciente.nombres }} - {{ paciente.cedula }}
-            </option>
-          </select>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        <div class="form-group">
-          <label for="cedulaInput">Cédula</label>
-          <input
-            type="text"
-            [value]="pacienteSelecionado?.cedula"
-            id="cedulaInput"
-            class="form-control form-control"
-            placeholder="Cedula"
-            disabled="true"
-            
-          />
-        </div>
+            {{ paciente.nombres }} - {{ paciente.cedula }}
+          </option>
+        </select>
       </div>
 
-      <div class="col-12 col-md-6">
-        <div class="form-group">
-          <label for="nombresInput">Nombres</label>
-          <input
-            type="text"
-            id="cedulaInput"
-            [value]="pacienteSelecionado?.nombres"
-            class="form-control form-control"
-            placeholder="Nombres"
-            disabled="true"
-          />
-        </div>
+      <div class="form-group">
+        <label for="cedulaInput">Cédula</label>
+        <input
+          type="text"
+          [value]="cita.paciente?.cedula"
+          id="cedulaInput"
+          class="form-control"
+          placeholder="Cedula"
+          disabled="true"
+        />
       </div>
 
-      <div class="col-12 col-md-6">
-        <div class="form-group">
-          <label for="apellidosInput">Apellidos</label>
-          <input
-            type="text"
-            id="cedulaInput"
-            [value]="pacienteSelecionado?.apellidos"
-            class="form-control form-control"
-            placeholder="Apellidos"
-            disabled="true"
-          />
-        </div>
+      <div class="form-group">
+        <label for="nombresInput">Nombres</label>
+        <input
+          type="text"
+          id="cedulaInput"
+          [value]="cita?.paciente.nombres"
+          class="form-control"
+          placeholder="Nombres"
+          disabled="true"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="apellidosInput">Apellidos</label>
+        <input
+          type="text"
+          id="cedulaInput"
+          [value]="cita?.paciente.apellidos"
+          class="form-control"
+          placeholder="Apellidos"
+          disabled="true"
+        />
       </div>
     </div>
 
     <hr />
-
-    <h4>Datos de la especialidad y el doctor</h4>
+    <h4>Datos del doctor</h4>
 
     <!-- datos de la especialidad y el doctor -->
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <div class="form-group">
-          <label for="especialidadInput">Especialidad</label>
-          <select
-            class="form-control form-control-alternative"
-            id="especialidadInput"
-          >
-            <option>Cardiología</option>
-            <option>Neurología</option>
-            <option>Oncología</option>
-            <option>Ortopedia</option>
-            <option>Pediatrics</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="medicoInput">Médico</label>
-          <select
-            class="form-control form-control-alternative"
-            id="medicoInput"
-          >
-            <option>Roberto Carlos</option>
-            <option>Daniel</option>
-            <option>Gualpa</option>
-            <option>Santiago</option>
-          </select>
-        </div>
+    <div class="formulario-input">
+      <div class="form-group">
+        <label for="id_doctor">
+          Buscador de doctor
+          <span class="text-primary" *ngIf="estadoDoctor">Buscando...</span>
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          id="id_doctor"
+          placeholder="Palabra clave por ejemplo: cedula, nombres, correo"
+          [(ngModel)]="queryDoctor"
+          name="identificador_doctor"
+          (ngModelChange)="filtroDoctor()"
+        />
       </div>
 
-      <div class="col-12 col-md-6">
-        <div class="form-group">
-          <label for="tiempoInput">Fecha y hora de atención</label>
-          <input
-            class="form-control form-control-alternative"
-            type="datetime-local"
-            value="2018-11-23T10:30:00"
-            id="tiempoInput"
-          />
-        </div>
+      <div class="form-group">
+        <label for="doctorSelecionado">Seleccione un doctor</label>
+        <select
+          class="custom-select form-control"
+          [(ngModel)]="cita.doctor"
+          name="doctor_selecionado"
+          id="doctorSelecionado"
+        >
+          <option *ngFor="let doctor of doctoresFiltrado" [ngValue]="doctor">
+            {{ doctor.nombres }} - {{ doctor.cedula }}
+          </option>
+        </select>
+      </div>
 
-        <div class="form-group">
-          <label for="tipoInput">Tipo de consulta</label>
-          <input
-            type="text"
-            id="pacienteInput"
-            class="form-control form-control-alternative"
-            placeholder="Tipo de consulta"
-          />
-        </div>
+      <div class="form-group">
+        <label for="cedulaInput">Cédula</label>
+        <input
+          type="text"
+          [value]="cita?.doctor.cedula"
+          id="cedulaInput"
+          class="form-control"
+          placeholder="Cedula"
+          disabled="true"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="nombresInput">Nombres</label>
+        <input
+          type="text"
+          id="cedulaInput"
+          [value]="cita?.doctor.nombres"
+          class="form-control"
+          placeholder="Nombres"
+          disabled="true"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="apellidosInput">Apellidos</label>
+        <input
+          type="text"
+          id="cedulaInput"
+          [value]="cita?.doctor.apellidos"
+          class="form-control"
+          placeholder="Apellidos"
+          disabled="true"
+        />
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary btn-lg btn-block mt-3">
+    <hr />
+    <h4>Datos de la cita</h4>
+
+    <div class="formulario-input">
+      <div class="form-group">
+        <label for="fecha">Fecha y Hora</label>
+        <input 
+          type="datetime-local"
+          id="fecha"
+          [(ngModel)]="cita.fecha"
+          name="fecha"
+          min="{{minFecha}}"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="estado">Estado</label>
+        <input
+          type="text"
+          id="estado"
+          [value]="cita.estado"
+          disabled="true"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <textarea
+        type="text"
+        id="descripcion"
+        [(ngModel)]="cita.descripcion"
+        name="descripcion"
+        class="form-control"
+        placeholder="Descripción de la cita medica"
+      ></textarea>
+    </div>
+
+
+    <button 
+      type="submit"
+      class="btn btn-primary btn-lg btn-block mt-3"
+      [disabled]="!habilitar"
+      >
       Registrar cita
     </button>
+    
+
   </form>
 </div>

@@ -1,99 +1,56 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <h3>
-      Pacientes por atender
-      <small class="text-muted">lista de paciente del día</small>
-    </h3>
-    <!--button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button-->
+<div class="container-fluid d-flex justify-content-between mt-3">
+  <h3 class="text-truncate">
+    Pacientes por atender
+    <small class="text-muted">lista de paciente del día</small>
+  </h3>
 
-    <!--div class="collapse navbar-collapse" id="navbarSupportedContent"-->
-    <div class="nav justify-content-end">
-      
-      <button type="button" class="btn btn-icon btn-primary btn-nueva-cita" (click)="nuevaCita()">
-          <span class="btn-inner--icon"><i class="fa-solid fa-user-plus"></i></span>
-          <span class="btn-inner--text">Nueva cita</span>
-      </button>
+  <button
+    type="button"
+    class="btn btn-icon btn-primary btn-nueva-cita"
+    (click)="nuevaCita()"
+  >
+    <span class="btn-inner--icon"><i class="fa-solid fa-user-plus"></i></span>
+    <span class="btn-inner--text">Nueva cita</span>
+  </button>
+</div>
 
-    </div>
+
+<div class="container-fluid">
+  <h5>Bienvenido 
+    <small class="text-muted">{{ fullNombre }}</small>
+  </h5>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Paciente</th>
+          <th>Cédula</th>
+          <th>Correo</th>
+          <th>Fecha de la cita</th>
+          <th>Estado</th>
+          <th>Doctor</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="list">
+        <tr *ngFor="let cita of citas">
+          <td>{{ cita.paciente.nombres }}</td>
+          <td>{{ cita.paciente.cedula }}</td>
+          <td>{{ cita.paciente.correo }}</td>
+          <td>{{ cita.fecha | date:"dd/MM/yyyy" }}</td>
+          <td>
+            <span class="badge badge-dot mr-4">
+              <i class="bg-warning"></i>
+              <span class="status">{{ cita.estado }}</span>
+            </span>
+          </td>
+          <td>{{ cita.doctor.nombres }}</td>
+          <td>
+            <button type="button" class="btn btn-primary btn-sm">Atender</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</nav>
-<div class="table-responsive">
-  <table class="table align-items-center table-flush">
-    <!-- cabezera de la tabla -->
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">
-          <div class="custom-control custom-checkbox mb-3">
-            <input
-              class="custom-control-input"
-              id="customCheck1"
-              type="checkbox"
-            />
-            <label class="custom-control-label" for="customCheck1"></label>
-          </div>
-        </th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Semana</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Fecha de la cita</th>
-        <th scope="col">Acciones</th>
-      </tr>
-    </thead>
-
-    <!-- cuerpo de la tabla -->
-    <tbody>
-      <tr>
-        <td scope="row">
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="customCheck2">
-            <label class="custom-control-label" for="customCheck2"></label>
-          </div>
-        </td>
-        <td>Paola Miranda</td>
-        <td>
-          <span class="badge badge-dot mr-4">
-            <i class="bg-warning"></i> 15
-          </span>
-        </td>
-        <td>
-          <span class="badge badge-pill badge-primary">Atendido</span>
-        </td>
-        <td>Miércoles 1 de febrero 8 am</td>
-        <td class="text-right">
-          <div ngbDropdown placement="bottom-right">
-            <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
-              <i class="fas fa-ellipsis-v"></i>
-            </a>
-            <div
-              ngbDropdownMenu
-              class="dropdown-menu-right dropdown-menu-arrow"
-            >
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Dropdown button
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-
-  </table>
 </div>

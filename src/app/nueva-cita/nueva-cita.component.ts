@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { CitasService } from '../core/cita/citas.service';
 import { Cita } from '../core/cita/citas.types';
 import { UserService } from '../core/user/user.service';
 import { User } from '../core/user/user.types';
+
 
 @Component({
   selector: 'app-nueva-cita',
@@ -11,47 +13,90 @@ import { User } from '../core/user/user.types';
 })
 export class NuevaCitaComponent implements OnInit {
 
-  constructor(
-    private userService: UserService
-  ) { }
+  
 
-  cita: Cita
-  terminoQuery: string;
-
-  pacientes: User[]
-  doctores: User[]
+  cita: Cita = new Cita();
+  minFecha: string;
+  
+  queryPaciente: string = "";
+  queryDoctor: string = "";
 
   pacientesFiltrado: User[] = [];
+  doctoresFiltrado: User[] = [];
 
-  pacienteSelecionado: User;
+  estadoPaciente: boolean = false;
+  estadoDoctor: boolean = false;
+  
+  constructor(
+    private userService: UserService,
+    private citasService: CitasService
+  ) { 
+
+    this.minFecha = new Date().toISOString().slice(0, 10);
+  }
 
   ngOnInit(): void {
+    
+    console.log(this.queryPaciente, this.queryDoctor);
+
     this.userService.ObtenerUsuario("paciente", "").subscribe(res => {
       console.log(res);
-      this.pacientes = res;
-      this.pacientesFiltrado = this.pacientes;
+      this.pacientesFiltrado = res;
     });
 
     this.userService.ObtenerUsuario("doctor", "").subscribe(res => {
       console.log(res);
-      this.doctores = res;
+      this.doctoresFiltrado = res;
     });
+  }
+
+  
+
+  filtroPaciente(): void {
+    this.estadoPaciente = true;
+    this.userService.ObtenerUsuario("paciente", this.queryPaciente, 10)
+      .subscribe(usuarios => {
+        this.pacientesFiltrado = usuarios;
+        this.estadoPaciente = false;
+      });
+  }
+
+  filtroDoctor(): void {
+    this.estadoDoctor = true;
+    this.userService.ObtenerUsuario("doctor", this.queryDoctor, 10)
+      .subscribe(usuarios => {
+        this.doctoresFiltrado = usuarios;
+        this.estadoDoctor = false;
+      });
+  }
+
+  get habilitar(): boolean {
+    console.log(this.cita.fecha)
+    const today = new Date();
+    const fechaCita = new Date(this.cita.fecha);
+
+    if (
+      this.cita.paciente.id.length > 0 && 
+      this.cita.doctor.id.length > 0 &&
+      this.cita.descripcion.length > 0 &&
+      fechaCita.getTime() > today.getTime()
+      ) {
+      return true;
+    }
+
+    return false
   }
 
   registrarCita(): void { 
     console.log('registrarCita');
-    console.log(this.pacienteSelecionado)
+    console.log("cita a registrar: ", this.cita);
+    this.citasService.registraCita(this.cita)
+      .subscribe(res => {
+        alert("Se a registrado con exito: " + res.id)
+        console.log("Cita registrada: ", res);
+        this.cita = new Cita();
+      })
   }
-
-  filtroPaciente(): void {
-    if (this.terminoQuery.length < 3) {
-      return
-    }
-
-    this.userService.ObtenerUsuario("paciente", this.terminoQuery, 10)
-      .subscribe(usuarios => {
-        this.pacientesFiltrado = usuarios;
-      });
-  }
+  
 
 }

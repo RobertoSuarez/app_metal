@@ -26,3 +26,7 @@ flex-grow: 0;
 .btn-nueva-cita i {
     font-size: 1rem;
 }
+
+th, td {
+    font-size: 0.9rem;
+}
