@@ -13,7 +13,7 @@ export class UserService {
 
   constructor(
     private http: HttpClient
-  ) { 
+  ) {
 
     console.log('UserService constructor');
 
@@ -21,7 +21,7 @@ export class UserService {
   }
 
 
-  login( correo: string, password: string ) {
+  login(correo: string, password: string) {
     return this.http.post<LoginResponse>(`${environment.apiUrl}/users/login`, {
       correo: correo,
       password: password
@@ -45,6 +45,14 @@ export class UserService {
     console.log(params);
 
     return this.http.get<User[]>(`${environment.apiUrl}/users`, { params })
+  }
+
+  registerLocalStorage(response: LoginResponse): void {
+    console.log(response);
+    const { token, user } = response;
+
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', JSON.stringify(token));
   }
 
 }

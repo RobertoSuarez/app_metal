@@ -13,39 +13,43 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   focus;
   focus1;
-  err: boolean= false;
+  err: boolean = false;
 
   userLoginForm: FormGroup = new FormGroup({
     correo: new FormControl('almea@gmail.com', [Validators.required, Validators.email]),
-    contraseña: new FormControl('800', [Validators.required, Validators.minLength(2) ]),
+    contraseña: new FormControl('800', [Validators.required, Validators.minLength(2)]),
   })
 
   constructor(
     private userService: UserService,
     private router: Router
-  ) 
-  {}
+  ) { }
 
   ngOnInit() {
-    
+
   }
 
-  onLoginUsuario(){
+  onLoginUsuario() {
     console.log(this.userLoginForm.value);
-    
+
     // 
     const correo: string = this.userLoginForm.get('correo').value;
     const password: string = this.userLoginForm.get('contraseña').value;
 
     this.userService.login(correo, password)
       .subscribe({
-        complete: () => { 
-          console.log('completado'); 
+        complete: () => {
+          console.log('completado');
         },
         next: (response) => {
-          //console.log(response);
-          //alert('El usuario inicio con exito' + response.user.nombres);
-          this.router.navigate(['/perfil'])
+
+          this.userService.registerLocalStorage(response);
+
+          if (response.user.rol === 'paciente') {
+            this.router.navigate(['/perfil'])
+          } else {
+            this.router.navigate(['/admin'])
+          }
         },
         error: (error: HttpErrorResponse) => {
           console.log(error);
@@ -54,7 +58,7 @@ export class LoginComponent implements OnInit {
         }
       });
 
-    
+
   }
 
 }
