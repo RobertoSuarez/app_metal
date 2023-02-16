@@ -55,4 +55,8 @@ export class UserService {
     localStorage.setItem('token', JSON.stringify(token));
   }
 
+  get usuarioLocal(): User {
+    return JSON.parse(localStorage.getItem('user')) as User;
+  }
+
 }

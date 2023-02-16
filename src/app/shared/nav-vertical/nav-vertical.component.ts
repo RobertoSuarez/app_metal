@@ -20,7 +20,7 @@ export class NavVerticalComponent implements OnInit {
       icon: 'fa-solid fa-laptop-medical'
     }, 
     {
-      display: 'Pacientes',
+      display: 'Pacientes por atender',
       path: '/admin/pacientes-por-atender',
       icon: 'fa-solid fa-hospital-user',
     },

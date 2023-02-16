@@ -23,4 +23,11 @@ export class CitasService {
     cita.fecha = new Date(cita.fecha).toISOString();
     return this.http.post<Cita>(`${environment.apiUrl}/citas`, cita)
   }
+
+  obtenerCitasPorDoctor(idDoctor: string) {
+
+    let params = new HttpParams();
+    params = params.append('id-doctor', idDoctor);
+    return this.http.get<Cita[]>(`${environment.apiUrl}/citas`, { params })
+  }
 }
