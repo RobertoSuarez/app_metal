@@ -39,8 +39,20 @@ export class ListadoPacientesComponent implements OnInit {
     this.router.navigate(['/admin/nueva-cita']);
   }
 
+  recordar(idCita: string): void {
+    console.log('Recordar cita');
+    this.citasService.recordarCita(idCita)
+    .subscribe({
+      next(value) {
+        console.log(value);
+      },
+      error(err) {
+        console.log(err);
+      },
+    })
+  }
+
   get fullNombre(): string {
-    console.log(this.userService.usuarioLocal)
     return `${this.userService.usuarioLocal.nombres} ${this.userService.usuarioLocal.apellidos}`
   }
 }

@@ -30,6 +30,7 @@
           <th>Fecha de la cita</th>
           <th>Estado</th>
           <th>Doctor</th>
+          <th>Recordatorios</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -46,8 +47,10 @@
             </span>
           </td>
           <td>{{ cita.doctor.nombres }}</td>
+          <td>{{ cita.recordatorios }}</td>
           <td>
             <button type="button" class="btn btn-primary btn-sm">Atender</button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="recordar(cita.id)">Recordar</button>
           </td>
         </tr>
       </tbody>

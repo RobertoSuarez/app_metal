@@ -12,7 +12,7 @@ export class CitasService {
     private http: HttpClient
   ) { }
 
-  mostarCitas(cedula:string){
+  mostarCitas(cedula:string) {
     let params = new HttpParams();
     params = params.append('cedula', cedula);
     console.log(params);
@@ -29,5 +29,9 @@ export class CitasService {
     let params = new HttpParams();
     params = params.append('id-doctor', idDoctor);
     return this.http.get<Cita[]>(`${environment.apiUrl}/citas`, { params })
+  }
+
+  recordarCita(idCita: string) {
+    return this.http.put(`${environment.apiUrl}/citas/${idCita}/recordatorio`, {});
   }
 }
