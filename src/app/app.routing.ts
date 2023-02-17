@@ -21,6 +21,9 @@ import { HistorialPacientesComponent } from "./historial-pacientes/historial-pac
 import { InicioComponent } from "./inicio/inicio.component";
 import { ContendioDeInteresComponent } from "./contendio-de-interes/contendio-de-interes.component";
 import { NuevaCitaComponent } from "./nueva-cita/nueva-cita.component";
+import { AuthTokenGuard } from "./guards/auth-token.guard";
+import { DoctorGuard } from "./guards/doctor.guard";
+import { PacienteGuard } from "./guards/paciente.guard";
 
 const routes: Routes = [
   
@@ -31,6 +34,7 @@ const routes: Routes = [
   {
     path: "",
     component: UserComponent,
+    canActivate: [AuthTokenGuard, PacienteGuard],
     children: [
       { path: "home", component: HomeComponent },
       { path: "inicio", component: InicioComponent },
@@ -45,6 +49,7 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminComponent,
+    canActivate: [AuthTokenGuard, DoctorGuard],
     children: [
       { path: "registrar-usuario", component: SignupComponent },
       { path: "pacientes-por-atender", component: ListadoPacientesComponent },

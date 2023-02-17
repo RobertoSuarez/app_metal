@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   err: boolean = false;
 
   userLoginForm: FormGroup = new FormGroup({
-    correo: new FormControl('almea@gmail.com', [Validators.required, Validators.email]),
-    contraseña: new FormControl('800', [Validators.required, Validators.minLength(2)]),
+    correo: new FormControl('', [Validators.required, Validators.email]),
+    contraseña: new FormControl('', [Validators.required, Validators.minLength(2)]),
   })
 
   constructor(
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
           if (response.user.rol === 'paciente') {
             this.router.navigate(['/perfil'])
           } else {
-            this.router.navigate(['/admin'])
+            this.router.navigate(['/admin/dashboard'])
           }
         },
         error: (error: HttpErrorResponse) => {

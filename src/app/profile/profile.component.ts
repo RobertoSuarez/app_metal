@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../core/user/user.service';
+import { User } from '../core/user/user.types';
 
 @Component({
     selector: 'app-profile',
@@ -8,8 +11,20 @@ import { Component, OnInit } from '@angular/core';
 
 export class ProfileComponent implements OnInit {
 
-    constructor() { }
+    constructor(
+        private userService: UserService,
+        private router: Router
+    ) { }
 
     ngOnInit() {}
+
+    cerrar() {
+        this.userService.cerrarSesion();
+        this.router.navigate(['/login']);
+    }
+
+    get usuario(): User {
+        return this.userService.usuarioLocal;
+    }
 
 }
