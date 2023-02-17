@@ -16,7 +16,7 @@ export class CitasService {
     let params = new HttpParams();
     params = params.append('cedula', cedula);
     console.log(params);
-    return this.http.get<Cita[]>(`${environment.apiUrl}/citas`)
+    return this.http.get<Cita[]>(`${environment.apiUrl}/citas`, {params})
   }
 
   registraCita(cita: Cita) {
