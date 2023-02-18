@@ -32,6 +32,6 @@ export class CitasService {
   }
 
   recordarCita(idCita: string) {
-    return this.http.put(`${environment.apiUrl}/citas/${idCita}/recordatorio`, {});
+    return this.http.put<Cita>(`${environment.apiUrl}/citas/${idCita}/recordatorio`, {});
   }
 }

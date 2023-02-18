@@ -27,6 +27,7 @@ import { NuevaCitaComponent } from './nueva-cita/nueva-cita.component';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeEs, 'es');
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ registerLocaleData(localeEs, 'es');
     AppRoutingModule,
     HomeModule,
     HttpClientModule,
+    SweetAlert2Module.forRoot(),
     
   ],
   providers: [{provide: LOCALE_ID, useValue: 'es'}],

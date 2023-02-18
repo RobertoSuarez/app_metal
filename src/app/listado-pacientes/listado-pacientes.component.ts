@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { CitasService } from '../core/cita/citas.service';
 import { Cita } from '../core/cita/citas.types';
 import { UserService } from '../core/user/user.service';
@@ -29,6 +30,14 @@ export class ListadoPacientesComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.citas = data;
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          toast: true,
+          text: 'Se obtubieron los datos correctamente',
+          showConfirmButton: false,
+          timer: 1500,
+        })
       })
   }
 
@@ -40,13 +49,22 @@ export class ListadoPacientesComponent implements OnInit {
   }
 
   recordar(idCita: string): void {
-    console.log('Recordar cita');
+    
     this.citasService.recordarCita(idCita)
     .subscribe({
-      next(value) {
+      next: (value) => {
         console.log(value);
+        const index = this.citas.findIndex(obj => obj.id === value.id);
+        if (index !== -1) {
+          this.citas[index] = value;
+          Swal.fire({
+            text: 'Se envio el correo correctamente',
+            icon: 'success',
+            timer: 1500,
+          });
+        }
       },
-      error(err) {
+      error: (err) => {
         console.log(err);
       },
     })
