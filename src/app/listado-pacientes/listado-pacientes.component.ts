@@ -73,4 +73,9 @@ export class ListadoPacientesComponent implements OnInit {
   get fullNombre(): string {
     return `${this.userService.usuarioLocal.nombres} ${this.userService.usuarioLocal.apellidos}`
   }
+
+  atender(idCita: string) {
+    console.log("Atender la cita: ", idCita)
+    this.router.navigate(['/doctor/atender', idCita]);
+  }
 }

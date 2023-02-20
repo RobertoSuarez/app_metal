@@ -16,7 +16,7 @@
 
 <div class="container-fluid">
   <h5>
-    Bienvenido
+    Doctor
     <small class="text-muted">{{ fullNombre }}</small>
   </h5>
 
@@ -27,9 +27,8 @@
           <th>Paciente</th>
           <th>Cédula</th>
           <th>Correo</th>
-          <th>Fecha de la cita</th>
-          <th>Estado</th>
-          <th>Doctor</th>
+          <th>Fecha y hora</th>
+          
           <th>Recordatorios</th>
           <th>Acciones</th>
         </tr>
@@ -39,22 +38,15 @@
           <td>{{ cita.paciente.nombres }}</td>
           <td>{{ cita.paciente.cedula }}</td>
           <td>{{ cita.paciente.correo }}</td>
-          <td>{{ cita.fecha | date : "dd/MM/yyyy" }}</td>
-          <td>
-            <span class="badge badge-dot mr-4">
-              <i class="bg-warning"></i>
-              <span class="status">{{ cita.estado }}</span>
-            </span>
-          </td>
-          <td>{{ cita.doctor.nombres }}</td>
+          <td>{{ cita.fecha | date : "short" }}</td>
           <td>{{ cita.recordatorios }}</td>
           <td>
-            <button type="button" class="btn btn-primary btn-sm">
+            <button type="button" class="btn btn-primary btn-sm" (click)="atender(cita.id)">
               Atender
             </button>
             <button
               type="button"
-              class="btn btn-primary btn-sm"
+              class="btn btn-sm btn-outline-primary"
               (click)="recordar(cita.id)"
             >
               Recordar

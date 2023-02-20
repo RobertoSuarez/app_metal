@@ -30,7 +30,8 @@ registerLocaleData(localeEs, 'es');
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { PerfilComponent } from './perfil/perfil.component';
 import { SharedModule } from './shared/shared.module';
-import { NgChartsModule } from 'ng2-charts'
+import { NgChartsModule } from 'ng2-charts';
+import { AtenderComponent } from './atender/atender.component'
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { NgChartsModule } from 'ng2-charts'
     ContendioDeInteresComponent,
     NuevaCitaComponent,
     PerfilComponent,
+    AtenderComponent,
   ],
   imports: [
     BrowserModule,

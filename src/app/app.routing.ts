@@ -25,6 +25,7 @@ import { AuthTokenGuard } from "./guards/auth-token.guard";
 import { DoctorGuard } from "./guards/doctor.guard";
 import { PacienteGuard } from "./guards/paciente.guard";
 import { PerfilComponent } from "./perfil/perfil.component";
+import { AtenderComponent } from "./atender/atender.component";
 
 const routes: Routes = [
   
@@ -58,6 +59,7 @@ const routes: Routes = [
       { path: "dashboard", component: DashboardComponent },
       { path: "configuracion", component: ConfiguracionesComponent },
       { path: "perfil", component: PerfilComponent },
+      { path: "atender/:id-cita", component: AtenderComponent },
       { path: "ayuda", component: AyudaComponent },
       { path: "nueva-cita", component: NuevaCitaComponent },
     ]
