@@ -1,0 +1,41 @@
+
+.info-card {
+    width: 100%;
+    display: flex;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;    
+}
+
+.info-card-title {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.info-card-body {
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-morado {
+    background: linear-gradient(135deg, #c850c0, #4158d0);
+    color: #fff;
+}
+
+.card-celeste {
+    background: linear-gradient(135deg, #00d0e1, #0085c3, #005ea8);
+  color: #fff;
+  }
+
+.card-azul {
+    background: linear-gradient(135deg, #00b2ff, #0072ff, #00b2ff);
+  color: #fff;
+}
+
+.contenedor-graficos {
+    width: 100%;
+}

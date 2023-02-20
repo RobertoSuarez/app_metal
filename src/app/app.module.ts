@@ -30,6 +30,7 @@ registerLocaleData(localeEs, 'es');
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { PerfilComponent } from './perfil/perfil.component';
 import { SharedModule } from './shared/shared.module';
+import { NgChartsModule } from 'ng2-charts'
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { SharedModule } from './shared/shared.module';
     HomeModule,
     HttpClientModule,
     SweetAlert2Module.forRoot(),
-    SharedModule
+    SharedModule,
+    NgChartsModule,
     
   ],
   providers: [{provide: LOCALE_ID, useValue: 'es'}],

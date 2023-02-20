@@ -2,7 +2,63 @@
   titulo="Dashboard" 
   descripcion="Aquí puedes ver un resumen de tú trabajo"
   >
-  <div class="d-flex justify-content-end">
-    <span>Example</span>
-  </div>
 </app-page-title>
+
+<div class="container-fluid mt-2">
+  <div class="row">
+    <div class="col-md-4">
+      
+      <div class="info-card card-morado">
+        <div class="info-card-title">
+          <i class="fas fa-user-friends mr-2"></i>
+          Número de pacientes generales
+        </div>
+        <div class="info-card-body">
+          100
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      <div class="info-card card-celeste">
+        <div class="info-card-title">
+          <i class="fas fa-clock mr-2"></i>
+          Número de pacientes por atender
+        </div>
+        <div class="info-card-body">
+          3
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="info-card card-azul">
+        <div class="info-card-title">
+          <i class="fas fa-check-circle mr-2"></i>
+          Número de pacientes atendidos
+        </div>
+        <div class="info-card-body">
+          10
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-3">
+  <h3>Estadistica de atención</h3>
+  <div class="contenedor-graficos my-3">
+    <canvas
+      style="width: 100%; height: 500px"
+      baseChart
+      [type]="'bar'"
+      [data]="barChartData"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend"
+    >
+  
+    </canvas>
+  </div>
+
+
+</div>
