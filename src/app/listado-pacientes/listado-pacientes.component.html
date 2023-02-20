@@ -1,22 +1,22 @@
-<div class="container-fluid d-flex justify-content-between mt-3">
-  <h3 class="text-truncate">
-    Pacientes por atender
-    <small class="text-muted">lista de paciente del día</small>
-  </h3>
-
-  <button
-    type="button"
-    class="btn btn-icon btn-primary btn-nueva-cita"
-    (click)="nuevaCita()"
-  >
-    <span class="btn-inner--icon"><i class="fa-solid fa-user-plus"></i></span>
-    <span class="btn-inner--text">Nueva cita</span>
-  </button>
-</div>
-
+<app-page-title
+  titulo="Pacientes por atender"
+  descripcion="lista de paciente del día"
+>
+  <div class="d-flex justify-content-end">
+    <button
+      type="button"
+      class="btn btn-icon btn-primary btn-nueva-cita"
+      (click)="nuevaCita()"
+    >
+      <span class="btn-inner--icon"><i class="fa-solid fa-user-plus"></i></span>
+      <span class="btn-inner--text">Nueva cita</span>
+    </button>
+  </div>
+</app-page-title>
 
 <div class="container-fluid">
-  <h5>Bienvenido 
+  <h5>
+    Bienvenido
     <small class="text-muted">{{ fullNombre }}</small>
   </h5>
 
@@ -39,7 +39,7 @@
           <td>{{ cita.paciente.nombres }}</td>
           <td>{{ cita.paciente.cedula }}</td>
           <td>{{ cita.paciente.correo }}</td>
-          <td>{{ cita.fecha | date:"dd/MM/yyyy" }}</td>
+          <td>{{ cita.fecha | date : "dd/MM/yyyy" }}</td>
           <td>
             <span class="badge badge-dot mr-4">
               <i class="bg-warning"></i>
@@ -49,8 +49,16 @@
           <td>{{ cita.doctor.nombres }}</td>
           <td>{{ cita.recordatorios }}</td>
           <td>
-            <button type="button" class="btn btn-primary btn-sm">Atender</button>
-            <button type="button" class="btn btn-primary btn-sm" (click)="recordar(cita.id)">Recordar</button>
+            <button type="button" class="btn btn-primary btn-sm">
+              Atender
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              (click)="recordar(cita.id)"
+            >
+              Recordar
+            </button>
           </td>
         </tr>
       </tbody>

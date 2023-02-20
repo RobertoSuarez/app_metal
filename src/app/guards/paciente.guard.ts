@@ -35,7 +35,7 @@ export class PacienteGuard implements CanActivate {
     }
 
     if (user.rol === "doctor") {
-      this.router.navigate(["/admin"]);
+      this.router.navigate(["/doctor"]);
     }
   }
 }

@@ -28,6 +28,8 @@ import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeEs, 'es');
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { PerfilComponent } from './perfil/perfil.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     InicioComponent,
     ContendioDeInteresComponent,
     NuevaCitaComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     HomeModule,
     HttpClientModule,
     SweetAlert2Module.forRoot(),
+    SharedModule
     
   ],
   providers: [{provide: LOCALE_ID, useValue: 'es'}],

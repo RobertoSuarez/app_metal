@@ -24,6 +24,7 @@ import { NuevaCitaComponent } from "./nueva-cita/nueva-cita.component";
 import { AuthTokenGuard } from "./guards/auth-token.guard";
 import { DoctorGuard } from "./guards/doctor.guard";
 import { PacienteGuard } from "./guards/paciente.guard";
+import { PerfilComponent } from "./perfil/perfil.component";
 
 const routes: Routes = [
   
@@ -47,7 +48,7 @@ const routes: Routes = [
   },
 
   {
-    path: "admin",
+    path: "doctor",
     component: AdminComponent,
     canActivate: [AuthTokenGuard, DoctorGuard],
     children: [
@@ -56,6 +57,7 @@ const routes: Routes = [
       { path: "historial-medico", component: HistorialMedicoComponent },
       { path: "dashboard", component: DashboardComponent },
       { path: "configuracion", component: ConfiguracionesComponent },
+      { path: "perfil", component: PerfilComponent },
       { path: "ayuda", component: AyudaComponent },
       { path: "nueva-cita", component: NuevaCitaComponent },
     ]

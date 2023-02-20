@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
           if (response.user.rol === 'paciente') {
             this.router.navigate(['/perfil'])
           } else {
-            this.router.navigate(['/admin/dashboard'])
+            this.router.navigate(['/doctor/dashboard'])
           }
         },
         error: (error: HttpErrorResponse) => {
