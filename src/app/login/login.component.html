@@ -10,10 +10,10 @@
       <span></span>
       <span></span>
     </div>
+
     <div class="container pt-lg-8">
       <div class="row justify-content-center">
         <div class="col-lg-5">
-
           <div class="card bg-secondary shadow border-0">
             <div class="card-header bg-white pb-0">
               <div class="text-muted text-center mb-3">
@@ -21,45 +21,97 @@
               </div>
             </div>
             <div class="card-body px-lg-5 py-lg-4">
-              <div class="pb-5" style="text-align: center;"> 
-                <img src="./assets/img/brand/metalObstetric.jpg" height="200">
+              <div class="pb-5" style="text-align: center">
+                <img src="./assets/img/brand/metalObstetric.jpg" height="200" />
               </div>
               <div *ngIf="err" class="alert alert-danger" role="alert">
                 <strong>Error:</strong> Usuario o contraseña incorrecto.
               </div>
-              <form role="form" [formGroup]="userLoginForm" (ngSubmit)="onLoginUsuario()">
-                <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+
+              <form
+                role="form"
+                [formGroup]="userLoginForm"
+                (ngSubmit)="onLoginUsuario()"
+              >
+                <div
+                  class="form-group mb-3"
+                  [ngClass]="{ focused: focus === true }"
+                >
+
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-email-83"></i
+                      ></span>
                     </div>
-                    <input class="form-control" 
-                      placeholder="Correo" 
+                    <input
+                      class="form-control"
+                      placeholder="Correo"
                       formControlName="correo"
-                      type="email" 
-                      (focus)="focus=true" (blur)="focus=false">
+                      type="email"
+                      (focus)="focus = true"
+                      (blur)="focus = false"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      userLoginForm.controls.correo.errors &&
+                      (userLoginForm.controls.correo.dirty ||
+                        userLoginForm.controls.correo.touched)
+                    ">
+                    <small *ngIf="userLoginForm.controls.correo.errors.required" class="form-text text-muted">
+                      El correo es requerido
+                    </small>
+                    <small *ngIf="userLoginForm.controls.correo.errors.email" class="form-text text-muted">
+                      El correo no es valido
+                    </small>
                   </div>
                 </div>
-                <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                <div
+                  class="form-group"
+                  [ngClass]="{ focused: focus1 === true }"
+                >
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-lock-circle-open"></i
+                      ></span>
                     </div>
-                    <input class="form-control" 
-                      formControlName="contraseña"
-                      placeholder="Contraseña" type="password" 
-                      (focus)="focus1=true" (blur)="focus1=false">
+                    <input
+                      class="form-control"
+                      formControlName="password"
+                      placeholder="Contraseña"
+                      type="password"
+                      (focus)="focus1 = true"
+                      (blur)="focus1 = false"
+                    />
+                  </div>
+
+                  <div
+                    *ngIf="
+                      userLoginForm.controls.password.errors &&
+                      (userLoginForm.controls.password.dirty ||
+                        userLoginForm.controls.password.touched)
+                    ">
+                    <small *ngIf="userLoginForm.controls.password.errors.required" class="form-text text-muted">
+                      Se requiere de la contraseña
+                    </small>
+                    <small *ngIf="userLoginForm.controls.password.errors.minlength" class="form-text text-muted">
+                      La contraseña debe tener al menos {{ userLoginForm.controls.password.errors.minlength.requiredLength }} caracteres.
+                    </small>
                   </div>
                 </div>
                 <div class="text-center">
-                  <button 
+                  <button
                     [disabled]="!userLoginForm.valid"
-                    type="submit" 
-                    class="btn btn-primary my-4">Ingresar</button>
+                    type="submit"
+                    class="btn btn-primary my-4"
+                  >
+                    Ingresar
+                  </button>
                 </div>
               </form>
             </div>
-
           </div>
         </div>
       </div>

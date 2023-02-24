@@ -4,6 +4,7 @@ import { UserService } from '../core/user/user.service';
 import { finalize } from "rxjs";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Router } from "@angular/router";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   userLoginForm: FormGroup = new FormGroup({
     correo: new FormControl('angular3@gmail.com', [Validators.required, Validators.email]),
-    contraseña: new FormControl('facil2020', [Validators.required, Validators.minLength(2)]),
+    password: new FormControl('facil2020', [Validators.required, Validators.minLength(2)]),
   })
 
   constructor(
@@ -29,19 +30,35 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onLoginUsuario() {
+  async onLoginUsuario() {
     console.log(this.userLoginForm.value);
 
     // 
     const correo: string = this.userLoginForm.get('correo').value;
-    const password: string = this.userLoginForm.get('contraseña').value;
+    const password: string = this.userLoginForm.get('password').value;
 
+    Swal.fire({
+      title: "Cargando...",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+  
     this.userService.login(correo, password)
       .subscribe({
         complete: () => {
           console.log('completado');
         },
         next: (response) => {
+
+          Swal.fire({
+            title: "A iniciado",
+            icon: "success",
+            text: "El inicio de sesión se completo correctamente",
+            timer: 1500,
+          })
 
           this.userService.registerLocalStorage(response);
 
@@ -55,6 +72,11 @@ export class LoginComponent implements OnInit {
           console.log(error);
           //alert(error.message);
           this.err = true;
+          Swal.fire({
+            title: 'Error',
+            icon: 'error',
+            text: error.error.message
+          });
         }
       });
 
