@@ -38,7 +38,6 @@ const routes: Routes = [
     component: UserComponent,
     canActivate: [AuthTokenGuard, PacienteGuard],
     children: [
-      { path: "home", component: HomeComponent },
       { path: "inicio", component: InicioComponent },
       { path: "perfil", component: ProfileComponent },
       { path: 'proximas-citas', component: ProximaCitaComponent },
