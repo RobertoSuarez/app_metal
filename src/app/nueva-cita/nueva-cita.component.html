@@ -1,12 +1,11 @@
-<div class="container py-3">
-  <h3>
-    Nueva cita
-    <small class="text-muted">Aquí puedes crear nueva citas</small>
-  </h3>
-</div>
+<app-page-title
+  titulo="Nueva cita"
+  descripcion="Aquí puedes crear nueva citas"
+>
+</app-page-title>
 
-<div class="container mt-2">
-  <form class="form-nueva-cita p-4" (ngSubmit)="registrarCita()">
+<div class="container-fluid mt-2">
+  <form class="rounded border border-primary p-4" (ngSubmit)="registrarCita()">
     <!-- datos del paciente -->
     <h4>Datos del paciente</h4>
     <div class="formulario-input">
@@ -81,11 +80,12 @@
     </div>
 
     <hr />
+    
     <h4>Datos del doctor</h4>
 
     <!-- datos de la especialidad y el doctor -->
     <div class="formulario-input">
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="id_doctor">
           Buscador de doctor
           <span class="text-primary" *ngIf="estadoDoctor">Buscando...</span>
@@ -113,7 +113,7 @@
             {{ doctor.nombres }} - {{ doctor.cedula }}
           </option>
         </select>
-      </div>
+      </div> -->
 
       <div class="form-group">
         <label for="cedulaInput">Cédula</label>

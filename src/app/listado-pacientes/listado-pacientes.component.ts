@@ -45,7 +45,7 @@ export class ListadoPacientesComponent implements OnInit {
 
   nuevaCita(): void {
     console.log('Nueva cita');
-    this.router.navigate(['/admin/nueva-cita']);
+    this.router.navigate(['/doctor/nueva-cita']);
   }
 
   recordar(idCita: string): void {
