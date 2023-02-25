@@ -1,0 +1,20 @@
+.formulario-input {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 0.25rem;
+}
+
+
+.input-error {
+    min-height: 1.8rem;    
+}  
+
+
+small {
+    margin: 0px !important;
+    padding: 0px !important;
+}

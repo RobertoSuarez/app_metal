@@ -6,6 +6,7 @@ import { User } from "../core/user/user.types";
 import { Registro } from "./signup.types";
 import { Modal1Component } from "../shared/modal1/modal1.component";
 import { finalize } from "rxjs";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-signup",
@@ -21,7 +22,7 @@ export class SignupComponent implements OnInit {
   error: string = '';
 
   generos: string[] = ["Masculino", "Femenino", "otros"];
-  roles: string[] = ['admin', 'doctor', 'paciente'];
+  roles: string[] = ['doctor', 'paciente'];
 
   userForm: FormGroup = new FormGroup({
     nombres: new FormControl("", [
@@ -52,7 +53,7 @@ export class SignupComponent implements OnInit {
     nacimiento: new FormControl("", [Validators.required]),
     rol: new FormControl("", [Validators.required]),
 
-    confirContraseña: new FormControl("", [Validators.required]),
+    confirPassword: new FormControl("", [Validators.required]),
     politica: new FormControl(true, Validators.requiredTrue),
   });
 
@@ -66,11 +67,20 @@ export class SignupComponent implements OnInit {
   }
 
   onRegistrarUsuario() {
+
+    Swal.fire({
+      title: "Registrando Usuario",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
     console.log(this.userForm.value);
     this.userForm.disable();
 
     const password: string = this.userForm.get("password").value;
-    const confirPassword: string = this.userForm.get("confirContraseña").value;
+    const confirPassword: string = this.userForm.get("confirPassword").value;
     if (password !== confirPassword) {
       alert("Las contraseña no coinsiden");
       this.userForm.enable();
@@ -81,14 +91,26 @@ export class SignupComponent implements OnInit {
     .pipe(finalize(() => this.userForm.enable()))
     .subscribe({
       next: (user) => {
+        Swal.fire({
+          title: "Registro de usuario",
+          icon: "success",
+          text: `El registro del usuario ${user.nombres} se completado correctamente.`,
+          timer: 2500,
+        })
         console.log(user);
-        alert(`Usuario registrado: ${user.nombres} - ${user.id}`);
+        //alert(`Usuario registrado: ${user.nombres} - ${user.id}`);
         this.userForm.reset();
         //this.router.navigate(['/home']);
       },
       error: (err: HttpErrorResponse) => {
+        Swal.fire({
+          title: "Registro de usuario",
+          icon: "error",
+          text: err.error,
+          timer: 2500,
+        })
         console.log("Error", err.error);
-        alert(err.error);
+        //alert(err.error);
       }
     });
   }
