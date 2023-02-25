@@ -1,42 +1,89 @@
-<app-page-title 
-  titulo="Historial Médico" 
-  descripcion="Aquí podrá encontrar el historial médico de los pacientes">
+<app-page-title
+  titulo="Historial Médico"
+  descripcion="Aquí podrá encontrar el historial médico de los pacientes"
+>
 </app-page-title>
 
 <div class="container my-4">
-  <form role="form" class="d-flex flex-row justify-content-start align-items-baseline" [formGroup]="citaForm"
-    (ngSubmit)="onCita()">
-    <span class="font-weight-bold mr-3">Ingrese el número de cédula del paciente:</span>
-    <input type="text" class="form-control mr-3" style="width: 300px;" formControlName="cedula">
-    <button type="submit" class="btn btn-primary mr-3">Consultar citas</button>
+  <form
+    role="form"
+    class="d-flex flex-row justify-content-start align-items-baseline"
+    [formGroup]="citaForm"
+    (ngSubmit)="onCita()"
+  >
+    <span class="font-weight-bold mr-3"
+      >Ingrese el número de cédula del paciente:</span
+    >
+    <div class="d-flex flex-column">
+      <input
+        type="text"
+        class="form-control mr-3"
+        style="width: 300px"
+        formControlName="cedula"
+      />
+      <div
+        *ngIf="
+          citaForm.controls.cedula.errors &&
+          (citaForm.controls.cedula.dirty ||
+          citaForm.controls.cedula.touched)
+        "
+      >
+        <small
+          *ngIf="citaForm.controls.cedula.errors.required"
+          class="form-text text-muted"
+        >
+          Se requiere de la cédula del paciente
+        </small>
+        <small
+          *ngIf="citaForm.controls.cedula.errors.minlength"
+          class="form-text text-muted"
+        >
+          La cedula debe tener al menos
+          {{
+            citaForm.controls.cedula.errors.minlength.requiredLength
+          }}
+          caracteres.
+        </small>
+      </div>
+    </div>
+    <button 
+      type="submit" 
+      [disabled]="!citaForm.valid"
+      class="btn btn-primary mr-3">
+      Consultar citas
+    </button>
   </form>
 </div>
 <div class="container-fluid">
-
   <div class="border border-primary p-2">
-    
-      <div class="table-responsive">
-        <table class="table align-items-center table-flush">
-          <!-- cabezera de la tabla -->
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">Paciente</th>
-              <th scope="col">Descripción</th>
-              <th scope="col">Fecha de la cita</th>
-            </tr>
-          </thead>
-          <!-- cuerpo de la tabla -->
-          <tbody>
-            <tr *ngFor="let cita of citasPresentar">
-              <td scope="row">{{cita.paciente.nombres}} {{cita.paciente.apellidos}}</td>
-              <td>{{cita.descripcion}}</td>
-              <td>{{cita.fecha | date:"dd/MM/yyyy" }}</td>
-            </tr>
-          </tbody>
-
-        </table>
-      </div>
-
-    
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <!-- cabezera de la tabla -->
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Paciente</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha de la cita</th>
+            <th scope="colgroup">Acciones</th>
+          </tr>
+        </thead>
+        <!-- cuerpo de la tabla -->
+        <tbody>
+          <tr *ngFor="let cita of citasPresentar">
+            <td scope="row">
+              {{ cita.paciente.nombres }} {{ cita.paciente.apellidos }}
+            </td>
+            <td>{{ cita.descripcion }}</td>
+            <td>{{ cita.fecha | date : "dd/MM/yyyy" }}</td>
+            <td>
+              <button class="btn btn-icon btn-3 btn-primary btn-sm" type="button" (click)="mostrarCita(cita)">
+                <span class="btn-inner--icon"><i class="fa-solid fa-eye"></i></span>
+                <span class="btn-inner--text">Ver más</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
