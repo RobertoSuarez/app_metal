@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { CitasService } from '../core/cita/citas.service';
 import { Cita } from '../core/cita/citas.types';
 import { UserService } from '../core/user/user.service';
@@ -44,10 +45,13 @@ export class NuevaCitaComponent implements OnInit {
       this.pacientesFiltrado = res;
     });
 
-    this.userService.ObtenerUsuario("doctor", "").subscribe(res => {
-      console.log(res);
-      this.doctoresFiltrado = res;
-    });
+    // this.userService.ObtenerUsuario("doctor", "").subscribe(res => {
+    //   console.log(res);
+    //   this.doctoresFiltrado = res;
+    // });
+
+    console.log(this.userService.usuarioLocal.id, this.userService.usuarioLocal.nombres);
+    this.cita.doctor = this.userService.usuarioLocal;
   }
 
   
@@ -88,11 +92,27 @@ export class NuevaCitaComponent implements OnInit {
   }
 
   registrarCita(): void { 
+
     console.log('registrarCita');
     console.log("cita a registrar: ", this.cita);
+
+    Swal.fire({
+      title: "Registrando cita",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
     this.citasService.registraCita(this.cita)
       .subscribe(res => {
-        alert("Se a registrado con exito: " + res.id)
+        
+        Swal.fire({
+          title: "Registro de cita",
+          icon: "success",
+          text: "Se a registrado con extio: " + res.id,
+        })
+
         console.log("Cita registrada: ", res);
         this.cita = new Cita();
       })

@@ -1,0 +1,44 @@
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h5>Metal Obstetric</h5>
+  </div>
+
+  <ul class="list-unstyled">
+    <li 
+        [routerLinkActive]="['active']" 
+        *ngFor="let ruta of opcionesPrincipales"
+        >
+        <a href="#" [routerLink]="ruta.path">
+            <i [class]="ruta.icon"></i> {{ ruta.display }}
+        </a>
+    </li>
+  </ul>
+
+  
+
+  <div class="dropdown user-avatar-contenedor" ngbDropdown>
+    
+    <div class="media align-items-center avatar-opcion" ngbDropdownToggle>
+        <img 
+          src="/assets/img/theme/team-1-800x800.jpg" 
+          alt="Avatar del usuario" 
+          class="rounded-circle mr-3" 
+          height="35" >
+        <span class="mb-0">Roberto</span>
+    </div>
+  
+    <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+      <a class="dropdown-item" href="#" [routerLink]="['/doctor/perfil']">
+        <i class="ni ni-single-02"></i>
+        <span>Ver Perfil</span>
+      </a>
+      <a class="dropdown-item" href="#" (click)="cerrarSesion()">
+        <i class="ni ni-button-power"></i>
+        <span>Cerrar Sesión</span>
+      </a>
+    </div>
+    
+  </div>
+  
+</div>

@@ -7,6 +7,7 @@ export class Cita {
     descripcion?:         string;
     fecha?:               Date | string;
     estado?:              string;
+    recordatorios?: Number;
     detalles_embarazada?: DetallesEmbarazada;
     detalles_feto?:       DetallesFeto;
 
@@ -16,6 +17,7 @@ export class Cita {
         this.descripcion = "";
         this.fecha = new Date();
         this.estado = "Por atender";
+        this.recordatorios = 0;
     }
 }
 

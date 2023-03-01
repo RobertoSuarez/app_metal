@@ -21,6 +21,11 @@ import { HistorialPacientesComponent } from "./historial-pacientes/historial-pac
 import { InicioComponent } from "./inicio/inicio.component";
 import { ContendioDeInteresComponent } from "./contendio-de-interes/contendio-de-interes.component";
 import { NuevaCitaComponent } from "./nueva-cita/nueva-cita.component";
+import { AuthTokenGuard } from "./guards/auth-token.guard";
+import { DoctorGuard } from "./guards/doctor.guard";
+import { PacienteGuard } from "./guards/paciente.guard";
+import { PerfilComponent } from "./perfil/perfil.component";
+import { AtenderComponent } from "./atender/atender.component";
 
 const routes: Routes = [
   
@@ -31,6 +36,7 @@ const routes: Routes = [
   {
     path: "",
     component: UserComponent,
+    canActivate: [AuthTokenGuard, PacienteGuard],
     children: [
       
       { path: "inicio", component: InicioComponent },
@@ -43,14 +49,17 @@ const routes: Routes = [
   },
 
   {
-    path: "admin",
+    path: "doctor",
     component: AdminComponent,
+    canActivate: [AuthTokenGuard, DoctorGuard],
     children: [
       { path: "registrar-usuario", component: SignupComponent },
       { path: "pacientes-por-atender", component: ListadoPacientesComponent },
       { path: "historial-medico", component: HistorialMedicoComponent },
       { path: "dashboard", component: DashboardComponent },
       { path: "configuracion", component: ConfiguracionesComponent },
+      { path: "perfil", component: PerfilComponent },
+      { path: "atender/:id-cita", component: AtenderComponent },
       { path: "ayuda", component: AyudaComponent },
       { path: "nueva-cita", component: NuevaCitaComponent },
     ]

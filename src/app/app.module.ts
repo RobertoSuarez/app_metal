@@ -27,6 +27,11 @@ import { NuevaCitaComponent } from './nueva-cita/nueva-cita.component';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeEs, 'es');
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { PerfilComponent } from './perfil/perfil.component';
+import { SharedModule } from './shared/shared.module';
+import { NgChartsModule } from 'ng2-charts';
+import { AtenderComponent } from './atender/atender.component'
 
 @NgModule({
   declarations: [
@@ -46,6 +51,8 @@ registerLocaleData(localeEs, 'es');
     InicioComponent,
     ContendioDeInteresComponent,
     NuevaCitaComponent,
+    PerfilComponent,
+    AtenderComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +63,10 @@ registerLocaleData(localeEs, 'es');
     AppRoutingModule,
     HomeModule,
     HttpClientModule,
+    SweetAlert2Module.forRoot(),
+    SharedModule,
+    NgChartsModule,
+    
   ],
   providers: [{provide: LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]

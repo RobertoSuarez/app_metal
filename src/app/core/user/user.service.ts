@@ -28,6 +28,10 @@ export class UserService {
     })
   }
 
+  cerrarSesion() {
+    localStorage.clear();
+  }
+
   registrarUsuario(usuario: User) {
     console.log("Registrando usuario: ", usuario);
 

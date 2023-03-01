@@ -1,10 +1,64 @@
-<div class="navbar">
-    <div class="container-fluid">
-      <h3>
-        Dashboard
-        <small class="text-muted">Aquí puedes ver un resumen de tú trabajo</small>
-      </h3>
+<app-page-title 
+  titulo="Dashboard" 
+  descripcion="Aquí puedes ver un resumen de tú trabajo"
+  >
+</app-page-title>
+
+<div class="container-fluid mt-2">
+  <div class="row">
+    <div class="col-md-4">
+      
+      <div class="info-card card-morado animate__animated animate__fadeIn">
+        <div class="info-card-title">
+          <i class="fas fa-user-friends mr-2"></i>
+          Número de pacientes generales
+        </div>
+        <div class="info-card-body">
+          100
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      <div class="info-card card-celeste animate__animated animate__fadeIn">
+        <div class="info-card-title">
+          <i class="fas fa-clock mr-2"></i>
+          Número de pacientes por atender
+        </div>
+        <div class="info-card-body">
+          3
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="info-card card-azul animate__animated animate__fadeIn">
+        <div class="info-card-title">
+          <i class="fas fa-check-circle mr-2"></i>
+          Número de pacientes atendidos
+        </div>
+        <div class="info-card-body">
+          10
+        </div>
+      </div>
+    
     </div>
   </div>
+</div>
+
+<div class="container-fluid mt-3">
+  <h4>Estadistica de atención</h4>
+  <div class="contenedor-graficos my-3">
+    <canvas
+      style="width: 100%; height: 500px"
+      baseChart
+      [type]="'bar'"
+      [data]="barChartData"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend"
+    >
   
-  
+    </canvas>
+  </div>
+
+
+</div>
