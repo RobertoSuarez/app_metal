@@ -26,13 +26,13 @@ const routes: Routes = [
   
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "login", component: LoginComponent },
-
+  { path: "home", component: HomeComponent },
 
   {
     path: "",
     component: UserComponent,
     children: [
-      { path: "home", component: HomeComponent },
+      
       { path: "inicio", component: InicioComponent },
       { path: "perfil", component: ProfileComponent },
       { path: 'proximas-citas', component: ProximaCitaComponent },
