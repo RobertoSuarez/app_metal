@@ -31,7 +31,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { PerfilComponent } from './perfil/perfil.component';
 import { SharedModule } from './shared/shared.module';
 import { NgChartsModule } from 'ng2-charts';
-import { AtenderComponent } from './atender/atender.component'
+import { AtenderComponent } from './atender/atender.component';
+import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component'
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AtenderComponent } from './atender/atender.component'
     NuevaCitaComponent,
     PerfilComponent,
     AtenderComponent,
+    CambiarPasswordComponent,
   ],
   imports: [
     BrowserModule,

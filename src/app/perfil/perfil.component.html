@@ -1,1 +1,152 @@
-<p>perfil works!</p>
+<app-page-title
+  titulo="Perfil del doctor"
+  descripcion="El doctor podra revisar su información y actualizar"
+></app-page-title>
+
+<div class="container-fluid my-3">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div
+          class="card-header d-flex flex-row align-items-center justify-content-between"
+        >
+          Información del Doctor
+          <button
+            type="button"
+            (click)="edicion = true"
+            *ngIf="!edicion"
+            class="btn btn-primary btn-sm ml-3"
+          >
+            Editar
+          </button>
+          <button
+            type="button"
+            (click)="edicion = false"
+            *ngIf="edicion"
+            class="btn btn-secondary btn-sm ml-3"
+          >
+            Cancelar
+          </button>
+        </div>
+
+        <div class="card-body">
+          <div *ngIf="edicion; else vista">
+            <form #doctorForm="ngForm" (ngSubmit)="submitForm()">
+              <div class="form-group">
+                <label for="nombres">Nombres:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nombres"
+                  name="nombres"
+                  [(ngModel)]="newUser.nombres"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="apellidos"
+                  name="apellidos"
+                  [(ngModel)]="newUser.apellidos"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="cedula">Cedula:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cedula"
+                  name="cedula"
+                  [(ngModel)]="newUser.cedula"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="correo"
+                  name="correo"
+                  [(ngModel)]="newUser.correo"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="genero">Genero:</label>
+                <select
+                  class="form-control"
+                  id="genero"
+                  name="genero"
+                  [(ngModel)]="newUser.genero"
+                  required
+                >
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="nacimiento">Fecha de nacimiento:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="nacimiento"
+                  name="nacimiento"
+                  [(ngModel)]="newUser.nacimiento"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="rol">Rol:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="rol"
+                  name="rol"
+                  [(ngModel)]="newUser.rol"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+          </div>
+          <ng-template #vista>
+            <h5 class="h5">
+              Nombres:
+              <small class="text-muted">{{ user.nombres }}</small>
+            </h5>
+            <h5 class="h5">
+              Apellidos:
+              <small class="text-muted">{{ user.apellidos }}</small>
+            </h5>
+            <h5 class="h5">
+              Cédula:
+              <small class="text-muted">{{ user.cedula }}</small>
+            </h5>
+            <h5 class="h5">
+              Correo electrónico:
+              <small class="text-muted">{{ user.correo }}</small>
+            </h5>
+            <h5 class="h5">
+              Género:
+              <small class="text-muted">{{ user.genero }}</small>
+            </h5>
+            <h5 class="h5">
+              Fecha de nacimiento:
+              <small class="text-muted">{{ user.nacimiento | date }}</small>
+            </h5>
+            <h5 class="h5">
+              Rol:
+              <small class="text-muted">{{ user.rol | titlecase }}</small>
+            </h5>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

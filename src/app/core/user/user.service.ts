@@ -59,6 +59,13 @@ export class UserService {
     localStorage.setItem('token', JSON.stringify(token));
   }
 
+  updatePassword(oldPassword, newPassword) {
+    return this.http.post<LoginResponse>(`${environment.apiUrl}/users/login`, {
+      correo: oldPassword,
+      password: newPassword
+    })
+  }
+
   get usuarioLocal(): User {
     return JSON.parse(localStorage.getItem('user')) as User;
   }

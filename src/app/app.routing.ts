@@ -26,6 +26,7 @@ import { DoctorGuard } from "./guards/doctor.guard";
 import { PacienteGuard } from "./guards/paciente.guard";
 import { PerfilComponent } from "./perfil/perfil.component";
 import { AtenderComponent } from "./atender/atender.component";
+import { CambiarPasswordComponent } from "./cambiar-password/cambiar-password.component";
 
 const routes: Routes = [
   
@@ -62,6 +63,7 @@ const routes: Routes = [
       { path: "atender/:id-cita", component: AtenderComponent },
       { path: "ayuda", component: AyudaComponent },
       { path: "nueva-cita", component: NuevaCitaComponent },
+      { path: "cambiar-password", component: CambiarPasswordComponent },
     ]
   },
   
