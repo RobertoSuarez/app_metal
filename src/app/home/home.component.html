@@ -1,75 +1,282 @@
-<!DOCTYPE html>
-<html lang="en">
+<nav
+  class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-default flex-row align-items-center"
+>
+  <div class="container">
+    <h1 class="display-4 text-white navbar-nav">Metal Obtetric</h1>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+    <button
+      class="btn btn-icon btn-3 btn-primary ml-auto"
+      type="button"
+      [routerLink]="['/login']"
+    >
+      <span class="btn-inner--icon"><i class="ni ni-circle-08"></i></span>
+      <span class="btn-inner--text">Iniciar Sesión</span>
+    </button>
+  </div>
+</nav>
 
-<body>
-  <nav class="navbar navbar-custom">
-    <div class="container-fluid">
-      <h2>
-        <a class="navbar-brand" style="color: white" href="#">
-          Clínica Obstetra
-        </a>
-      </h2>
+<section class="section section-shaped section-lg">
+  <div class="shape shape-style-1 bg-gradient-default">
+    <span class="span-150"></span>
+    <span class="span-50"></span>
+    <span class="span-50"></span>
+    <span class="span-75"></span>
+    <span class="span-100"></span>
+    <span class="span-75"></span>
+    <span class="span-50"></span>
+    <span class="span-100"></span>
+    <span class="span-50"></span>
+    <span class="span-100"></span>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 ">
+        <h1 class="display-1 text-white">Metal Obtetric</h1>
+        <p class="descripcion text-white">Una aplicación para dar seguimiento al embarazo de las pacientes</p>
+        
+        <button
+          class="btn btn-icon btn-3 btn-primary ml-auto"
+          type="button"
+          [routerLink]="['/login']"
+        >
+          <span class="btn-inner--icon"><i class="ni ni-circle-08"></i></span>
+          <span class="btn-inner--text">Iniciar Sesión</span>
+        </button>
+      </div>
+      <div class="col-6">
+        <img src="/assets/img/ilustraciones/Inicio.png" alt="Tres mujeres embaradas" width="100%"/>
+      </div>
     </div>
-  </nav>
-  <div class="u-align-left u-container-style u-image u-layout-cell u-left-cell u-size-24 u-image-1">
-    <!--imagen alto 410px en % es 54.1611624834874%-->
-    <div class="u-container-layout u-valign-top u-container-layout-1 d-flex flex-column"
-      style="width: 50%; height: 54.1611624834874%; position: absolute; left: 0;">
-      <div style="margin-left: 12.5%; margin-top: 10px;">
-        <h1>Metal Obstetric</h1>
-        sAlveMos LaS dOs VidAs!!!
-        <div>
-          <button class="btn btn-primary mt-4">
-            Crear cuenta
-          </button>
+  </div>
+</section>
+
+<section class="section section-lg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-3 mb-5">Características de la aplicación</h2>
+      </div>
+    </div>
+    <div class="row row-grid">
+      <div class="col-lg-4">
+        <div class="card card-lift--hover shadow border-0">
+          <div class="card-body py-5">
+            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+              <i class="ni ni-check-bold"></i>
+            </div>
+            <h6 class="text-primary text-uppercase">Seguimiento de citas médicas</h6>
+            <p class="description mt-3">Mantén un registro de todas tus citas médicas durante el embarazo y recibe recordatorios antes de cada una.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-lift--hover shadow border-0">
+          <div class="card-body py-5">
+            <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
+              <i class="ni ni-satisfied"></i>
+            </div>
+            <h6 class="text-success text-uppercase">Información detallada sobre el embarazo</h6>
+            <p class="description mt-3">Accede a información detallada sobre el desarrollo de tu embarazo semana a semana y aprende todo lo que necesitas saber.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-lift--hover shadow border-0">
+          <div class="card-body py-5">
+            <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
+              <i class="ni ni-notification-70"></i>
+            </div>
+            <h6 class="text-warning text-uppercase">Recordatorios de medicamentos</h6>
+            <p class="description mt-3">Recibe notificaciones para recordarte cuándo tomar tus medicamentos y asegurarte de estar siempre saludable durante el embarazo.</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="u-container-style u-image u-layout-cell u-right-cell u-size-36 u-image-2"
-      style="width: 50%; height: 54.1611624834874%; padding: 0px;
-      position: absolute; right: 0; margin: 0; background-image: url('./assets/img/brand/fondoHome.jpg'); background-size: cover;">
-      <!--div style="display: flex; justify-content: center;">
-        <img src="./assets/img/brand/fondoHome.jpg" width="1065" height="689">
-      </div-->
-    </div>
   </div>
-  <div class="d-flex" style="float: left; margin-top: 23%;  display: flex; 
-    justify-content: center; align-items: center; width: 100%;  margin-left: auto;  margin-right: auto;">
-    <!--primer div-->
-    <div class="card text-white" style="max-width: 18rem; background-color: #5e72e4; margin: 5px">
-      <div class="card-header text-white">Header</div>
-      <div class="card-body">
-        <h5 class="card-title text-white">Primary card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-      </div>
-    </div>
-    <!--segundo div-->
-    <div class="card text-white" style="max-width: 18rem; background-color: #5e72e4; margin: 5px">
-      <div class="card-header text-white">2 Header</div>
-      <div class="card-body">
-        <h5 class="card-title text-white">Secundary card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-      </div>
-    </div>
-    <!--Tercer div-->
-    <div class="card text-white" style="max-width: 18rem; background-color: #5e72e4; margin: 5px">
-      <div class="card-header text-white">2 Header</div>
-      <div class="card-body">
-        <h5 class="card-title text-white">Third card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-      </div>
-    </div>
-  </div>
-</body>
+</section>
 
-</html>
+<section class="section pb-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-3 mb-5">Testimonios</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-testimonial">
+          <div class="card-header bg-transparent">
+            <img src="assets/img/theme/christopher.jpg" class="img-fluid rounded mb-3" alt="testimonial 1">
+          </div>
+          <div class="card-body">
+            <p class="card-text mb-4">"¡Excelente aplicación! Me ha ayudado mucho durante mi embarazo. Es fácil de usar y siempre me recuerda mis citas médicas y exámenes."</p>
+            <hr>
+            <h5 class="card-title mb-0">María Fernández</h5>
+            <p class="card-text">32 años, Mocache</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-testimonial">
+          <div class="card-header bg-transparent">
+            <img src="assets/img/theme/edward-cisneros.jpg" class="img-fluid rounded mb-3" alt="testimonial 2">
+          </div>
+          <div class="card-body">
+            <p class="card-text mb-4">"Metal Obstetric es una gran herramienta para las futuras mamás. Me encanta la sección de ejercicios y recomendaciones nutricionales."</p>
+            <hr>
+            <h5 class="card-title mb-0">Carolina Díaz</h5>
+            <p class="card-text">28 años, Buena fe</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-testimonial">
+          <div class="card-header bg-transparent">
+            <img src="assets/img/theme/rachel-mcdermott.jpg" class="img-fluid rounded mb-3" alt="testimonial 3">
+          </div>
+          <div class="card-body">
+            <p class="card-text mb-4">"Recomiendo Metal Obstetric a todas las mujeres embarazadas. Es una aplicación completa y muy útil para el seguimiento del embarazo."</p>
+            <hr>
+            <h5 class="card-title mb-0">Isabel García</h5>
+            <p class="card-text">25 años, Quevedo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-3 mb-5">Servicios</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+              <i class="ni ni-chart-pie-35"></i>
+            </div>
+            <h3 class="card-title mb-3">Seguimiento del embarazo</h3>
+            <p class="card-text">Con Metal Obstetric, podrás hacer un seguimiento detallado de tu embarazo, incluyendo citas médicas, exámenes y recomendaciones personalizadas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+              <i class="ni ni-favourite-28"></i>
+            </div>
+            <h3 class="card-title mb-3">Ejercicios y nutrición</h3>
+            <p class="card-text">En Metal Obstetric, encontrarás una sección dedicada a ejercicios y recomendaciones nutricionales para llevar un embarazo saludable y activo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+              <i class="ni ni-briefcase-24"></i>
+            </div>
+            <h3 class="card-title mb-3">Acceso a profesionales de la salud</h3>
+            <p class="card-text">Con Metal Obstetric, podrás comunicarte fácilmente con profesionales de la salud para resolver tus dudas y obtener asesoramiento en tiempo real.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-secondary">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-3 mb-5">Nuestro equipo</h2>
+        <p class="lead mb-3">Conoce a los profesionales detrás de Metal Obstetric.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title mb-3">Dra. Ana Pérez</h3>
+            <h4 class="card-subtitle mb-3 text-muted">Ginecóloga</h4>
+            <p class="card-text">La Dra. Pérez es una ginecóloga con más de 10 años de experiencia en el seguimiento de embarazos y la atención a mujeres embarazadas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title mb-3">Dr. Carlos Hernández</h3>
+            <h4 class="card-subtitle mb-3 text-muted">Pediatra</h4>
+            <p class="card-text">El Dr. Hernández es un pediatra con experiencia en el cuidado de recién nacidos y el seguimiento del desarrollo infantil.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pb-0" id="contact">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-3 mb-5">Contáctanos</h2>
+        <p class="lead mb-3">Si tienes alguna duda o necesitas más información sobre nuestros servicios, no dudes en contactarnos.</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="input-name">Nombre completo:</label>
+              <p>Roberto Carlos Suárez Litardo</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="input-email">Correo electrónico:</label>
+              <p>roberto.suarez2018@uteq.edu.ec</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer pt-5 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h4 class="text-uppercase mb-4">Metal Obstetric</h4>
+        <p class="text-muted">Somos una clínica obstétrica especializada en brindar atención integral a las mujeres embarazadas.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h4 class="text-uppercase mb-4">Enlaces útiles</h4>
+        <ul class="list-unstyled">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#">Equipo</a></li>
+          <li><a href="#">Contáctanos</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h4 class="text-uppercase mb-4">Contáctanos</h4>
+        <p class="text-muted">Si tienes alguna duda o necesitas más información sobre nuestros servicios, no dudes en contactarnos.</p>
+        <a class="btn btn-primary btn-sm mt-2" href="#contact">Contacto</a>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-12 text-center">
+        <p class="text-muted">© 2023 Metal Obstetric. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </div>
+</footer>
