@@ -11,7 +11,7 @@ import { Ruta } from './rutas.types';
 export class SidebarComponent implements OnInit {
   opcionesPrincipales: Ruta[] = [
     {
-      display: 'Dashboard',
+      display: 'Resumen del día',
       path: '/doctor/dashboard',
       icon: 'fas fa-tachometer-alt',
     }, 
