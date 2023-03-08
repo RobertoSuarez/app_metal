@@ -1,20 +1,40 @@
-<div class="container mt-3">
-    <p class="font-weight-bold">Próxima citas</p>
-    <div class="card border border-primary mb-3" *ngFor="let cita of citas">
-        <div class="card-header">
-            <div class="d-flex flex-row">
-                <div class="m-1">
-                    <i class="ni ni-calendar-grid-58"></i>
-                </div>
-                Lunes 6 de enero {{cita}}
-            </div>
-        </div>
-        <div class="card-body">
-            <blockquote class="blockquote mb-0">
-                <p>Hora</p>
-                <p>Nombre doctor</p>
-                <footer class="blockquote-footer">Recordatorio: <cite title="Source Title">Source Title</cite></footer>
-            </blockquote>
-        </div>
-    </div>
+<div class="container">
+    <app-page-title
+        titulo="Próxima Citas"
+        descripcion="Mantén tus citas bajo control, cuidamos de ti y de tu bebé"
+    >
+    </app-page-title>
+    <!-- <hr class="mt-2"/> -->
 </div>
+
+
+<div class="container my-3">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+            <tr>
+                <th>Doctor</th>
+                <th>Fecha y hora</th>
+                <th>Paciente</th>
+                <th>Cédula</th>
+                <th>Estado</th>
+                <th>Descripción</th>
+                <th>Recordatorios</th>
+              </tr>
+        </thead>
+        <tbody class="list">
+
+          <tr *ngFor="let cita of citas" class="animate__animated animate__fadeIn">
+            <td>{{ cita.doctor.nombres }}</td>
+            <td>{{ cita.fecha | date : "short" }}</td>
+            <td>{{ cita.paciente.nombres }}</td>
+            <td>{{ cita.paciente.cedula }}</td>
+            <td>{{ cita.estado }}</td>
+            <td>{{ cita.descripcion }}</td>
+            <td>{{ cita.recordatorios }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

@@ -32,7 +32,8 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { SharedModule } from './shared/shared.module';
 import { NgChartsModule } from 'ng2-charts';
 import { AtenderComponent } from './atender/atender.component';
-import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component'
+import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component';
+import { ReservasComponent } from './reservas/reservas.component'
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.co
     PerfilComponent,
     AtenderComponent,
     CambiarPasswordComponent,
+    ReservasComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +70,7 @@ import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.co
     SweetAlert2Module.forRoot(),
     SharedModule,
     NgChartsModule,
+
     
   ],
   providers: [{provide: LOCALE_ID, useValue: 'es'}],

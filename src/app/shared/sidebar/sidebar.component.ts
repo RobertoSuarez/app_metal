@@ -41,6 +41,6 @@ export class SidebarComponent implements OnInit {
 
   cerrarSesion() {
     this.userService.cerrarSesion();
-    this.router.navigate(['/login']);
+    //this.router.navigate(['/login']);
   }
 }

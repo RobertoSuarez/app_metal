@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
   }
 
   cerrar() {
-    this.userService.cerrarSesion();
     this.router.navigate(['/login']);
+    this.userService.cerrarSesion();
   }
 }

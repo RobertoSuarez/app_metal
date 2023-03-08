@@ -1,6 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { UserService } from '../user/user.service';
 import { Cita} from './citas.types';
 
 @Injectable({
@@ -9,7 +11,8 @@ import { Cita} from './citas.types';
 export class CitasService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private userService: UserService
   ) { }
 
   mostarCitas(cedula:string) {
@@ -33,5 +36,11 @@ export class CitasService {
 
   recordarCita(idCita: string) {
     return this.http.put<Cita>(`${environment.apiUrl}/citas/${idCita}/recordatorio`, {});
+  }
+
+  // Obtener las proximas citas del usuario autenticado
+  proximasCitas() : Observable<Cita[]> {
+    const idUsuario = this.userService.usuarioLocal.id;
+    return this.http.get<Cita[]>(`${environment.apiUrl}/citas/proximas-citas/${idUsuario}`)
   }
 }

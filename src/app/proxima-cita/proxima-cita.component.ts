@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CitasService } from '../core/cita/citas.service';
+import { Cita } from '../core/cita/citas.types';
 
 @Component({
   selector: 'app-proxima-cita',
@@ -6,11 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./proxima-cita.component.css']
 })
 export class ProximaCitaComponent implements OnInit {
-  citas: string[]= ["cita1", "Cita 2"];
+  citas: Cita[]= [];
 
-  constructor() { }
+  constructor(
+    private citaService: CitasService
+  ) { }
 
   ngOnInit(): void {
+    this.citaService.proximasCitas()
+      .subscribe(data => {
+        this.citas = data;
+      })
   }
 
 }

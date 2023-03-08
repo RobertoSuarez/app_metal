@@ -1,18 +1,20 @@
-<app-page-title
-  titulo="Pacientes por atender"
-  descripcion="lista de paciente del día"
->
-  <div class="d-flex justify-content-end">
-    <button
-      type="button"
-      class="btn btn-icon btn-primary btn-nueva-cita"
-      (click)="nuevaCita()"
-    >
-      <span class="btn-inner--icon"><i class="fa-solid fa-user-plus"></i></span>
-      <span class="btn-inner--text">Nueva cita</span>
-    </button>
-  </div>
-</app-page-title>
+<div class="container-fluid">
+  <app-page-title
+    titulo="Pacientes por atender"
+    descripcion="lista de paciente del día"
+  >
+    <div class="d-flex justify-content-end">
+      <button
+        type="button"
+        class="btn btn-icon btn-primary btn-nueva-cita"
+        (click)="nuevaCita()"
+      >
+        <span class="btn-inner--icon"><i class="fa-solid fa-user-plus"></i></span>
+        <span class="btn-inner--text">Nueva cita</span>
+      </button>
+    </div>
+  </app-page-title>
+</div>
 
 <div class="container-fluid">
   <h5>
