@@ -22,7 +22,9 @@
             </div>
             <div class="card-body px-lg-5 py-lg-4">
               <div class="pb-5" style="text-align: center">
-                <img src="./assets/img/brand/metalObstetric.jpg" height="200" />
+                <a [routerLink]="['/home']">
+                  <img src="./assets/img/brand/metalObstetric.jpg" height="200" />
+                </a>
               </div>
               <div *ngIf="err" class="alert alert-danger" role="alert">
                 <strong>Error:</strong> Usuario o contraseña incorrecto.
