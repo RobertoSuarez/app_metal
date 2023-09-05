@@ -23,10 +23,10 @@
       <div class="card card-profile shadow mt--300 pb-5">
         <div class="px-4">
           <div >
-            <div class="col-lg-3 order-lg-2" style="float: left;">
+            <div class="col-lg-3 order-lg-2">
               <div class="card-profile-image">
                 <a href="javascript:void(0)">
-                  <img [src]="usuario.genero == 'Masculino'? '/assets/img/theme/team-1-800x800.jpg': '/assets/img/theme/team-3-800x800.jpg'" class="rounded-circle">
+                  
                 </a>
               </div>
             </div>
@@ -41,6 +41,8 @@
             </div>
           </div>
           <div class="text-center mt-5">
+            <div *ngIf="usuario.photoURL" class="rounded-circle" style="width: 10rem; height: 10rem; margin: 1rem auto; margin-top: -10px; background-size: cover; background-position: center;" [style.backgroundImage]="'url(' + usuario.photoURL + ')'">
+            </div>
             <h3>{{ usuario.nombres }} {{ usuario.apellidos }}<span class="font-weight-light">, {{ usuario.rol }}</span></h3>
             <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>Cédula: {{ usuario.cedula }}</div>
             <div class="h6 mt-2"><i class="ni business_briefcase-24 mr-2"></i>{{ usuario.correo }} {{ usuario.celular }}</div>

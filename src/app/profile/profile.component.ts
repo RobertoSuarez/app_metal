@@ -11,20 +11,20 @@ import { User } from '../core/user/user.types';
 
 export class ProfileComponent implements OnInit {
 
+    photoURL: string = "";
+    usuario: User;
     constructor(
         private userService: UserService,
         private router: Router
     ) { }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.usuario = this.userService.usuarioLocal;
+    }
 
     cerrar() {
         this.userService.cerrarSesion();
         this.router.navigate(['/login']);
-    }
-
-    get usuario(): User {
-        return this.userService.usuarioLocal;
     }
 
 }

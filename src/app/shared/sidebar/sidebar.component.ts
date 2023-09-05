@@ -31,12 +31,23 @@ export class SidebarComponent implements OnInit {
       icon: 'fas fa-user-plus',
     }
   ];
+
+  name: String = '';
+  photoURL: String = '/assets/img/theme/team-1-800x800.jpg';
+
   constructor(
     private userService: UserService,
     private router: Router,
-  ) { }
+  ) { 
+
+  }
 
   ngOnInit(): void {
+    console.log(this.userService.usuarioLocal);
+    this.name = this.userService.usuarioLocal.nombres;
+    if (this.userService.usuarioLocal.photoURL.length > 1) {
+      this.photoURL = this.userService.usuarioLocal.photoURL;
+    }
   }
 
   cerrarSesion() {

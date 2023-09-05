@@ -9,6 +9,7 @@ export class User {
     nacimiento?: string | Date;
     celular?:    string = "";
     rol?:        string = "";
+    photoURL?: string = "";
 
     constructor() {
         this.id = "";
