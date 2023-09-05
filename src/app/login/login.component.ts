@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   err: boolean = false;
 
   userLoginForm: FormGroup = new FormGroup({
-    correo: new FormControl('angular3@gmail.com', [Validators.required, Validators.email]),
+    correo: new FormControl('electrosonix12@gmail.com', [Validators.required, Validators.email]),
     password: new FormControl('facil2020', [Validators.required, Validators.minLength(2)]),
   })
 
